@@ -1,0 +1,990 @@
+// Global variables for sidebar state management
+const itemsPerColumn = 10;
+let allProjects = [];
+let allModules = {};
+let allPages = {};
+let allDocuments = [];
+let filteredProjects = [];
+const itemsPerPage = 20;
+let currentProjectPage = 1;
+let userManuallyClosedProject = {};
+let userManuallyClosedModule = {};
+let pendingRequests = {};
+let lastRefreshTime = 0;
+const REFRESH_THRESHOLD = 300000; // 5 minutes
+
+$(document).ready(function () {
+    // Add overlay div for mobile sidebar
+    $('body').append('<div class="sidebar-overlay"></div>');
+
+    // Restore sidebar state from localStorage
+    const sidebarCollapsed = localStorage.getItem('sidebar_collapsed') === 'true';
+    if (sidebarCollapsed) {
+        $('.sidebar').addClass('collapsed');
+        $('body').addClass('sidebar-collapsed');
+        $('#sidebarToggle').html('<i class="bi bi-layout-sidebar"></i>');
+    }
+
+    // Toggle sidebar on button click
+    $('#sidebarToggle').on('click', function () {
+        $('.sidebar').toggleClass('collapsed');
+        $('body').toggleClass('sidebar-collapsed');
+
+        // Update icon
+        if ($('.sidebar').hasClass('collapsed')) {
+            $(this).html('<i class="bi bi-layout-sidebar"></i>');
+            localStorage.setItem('sidebar_collapsed', 'true');
+        } else {
+            $(this).html('<i class="bi bi-layout-sidebar-inset"></i>');
+            localStorage.setItem('sidebar_collapsed', 'false');
+        }
+    });
+
+    // Close mobile navbar when clicking outside
+    $(document).on('click', function (e) {
+        if ($('.navbar-collapse').hasClass('show') &&
+            !$(e.target).closest('.navbar-collapse').length &&
+            !$(e.target).closest('.navbar-toggler').length) {
+            $('.navbar-toggler').click();
+        }
+    });
+
+    // Fix for flyout menus in collapsed sidebar
+    $(document).on('mouseenter', '.sidebar.collapsed .project-item', function () {
+        const moduleList = $(this).next('.module-list');
+        if (moduleList.length) {
+            // Store original display state to restore later
+            moduleList.data('original-display', moduleList.css('display'));
+            moduleList.css('display', 'block');
+
+            // Load modules if they haven't been loaded yet
+            const projectId = $(this).data('id');
+            const projectName = $(this).data('name');
+            if (moduleList.find('.loading-modules').length > 0) {
+                loadProjectModules(projectId, projectName);
+            }
+        }
+    });
+
+    $(document).on('mouseleave', '.sidebar.collapsed .project-item', function () {
+        const moduleList = $(this).next('.module-list');
+        if (!moduleList.is(':hover')) {
+            // Only hide if the mouse isn't over the module list
+            moduleList.css('display', moduleList.data('original-display') || 'none');
+        }
+    });
+
+    $(document).on('mouseleave', '.sidebar.collapsed .module-list', function () {
+        if (!$(this).prev('.project-item').is(':hover')) {
+            // Only hide if the mouse isn't over the project item
+            $(this).css('display', $(this).data('original-display') || 'none');
+        }
+    });
+
+    // Similar handling for module items and page lists
+    $(document).on('mouseenter', '.sidebar.collapsed .module-item', function () {
+        const pageList = $(this).next('.page-list');
+        if (pageList.length) {
+            pageList.data('original-display', pageList.css('display'));
+            pageList.css('display', 'block');
+        }
+    });
+
+    $(document).on('mouseleave', '.sidebar.collapsed .module-item', function () {
+        const pageList = $(this).next('.page-list');
+        if (!pageList.is(':hover')) {
+            pageList.css('display', pageList.data('original-display') || 'none');
+        }
+    });
+
+    $(document).on('mouseleave', '.sidebar.collapsed .page-list', function () {
+        if (!$(this).prev('.module-item').is(':hover')) {
+            $(this).css('display', $(this).data('original-display') || 'none');
+        }
+    });
+
+    // Initialize column count for mega menu
+    setTimeout(updateColumnCount, 1000);
+    
+    // Observe each .page-list for changes in child nodes
+    $('.page-list .pages-container').each(function () {
+        const targetNode = this;
+        const config = { childList: true, subtree: true };
+        const observer = new MutationObserver(function (mutationsList) {
+            for (const mutation of mutationsList) {
+                if (mutation.type === 'childList') {
+                    updateColumnCount();
+                    break;
+                }
+            }
+        });
+        observer.observe(targetNode, config);
+    });
+    
+    // Load projects for both desktop and mobile views
+    loadUserProjects();
+
+    // Refresh projects when clicking the refresh button
+    $('#refreshProjects').on('click', function (e) {
+        e.preventDefault();
+        refreshSidebar();
+    });
+    
+    // Check and expand active page path if on a documentation page
+    checkAndExpandActivePagePath();
+});
+
+// Update column count for mega menu
+function updateColumnCount() {
+    $('.page-list .pages-container').each(function () {
+        const $list = $(this);
+        const totalItems = $list.find('.page-item').length;
+        const columnCount = Math.ceil(totalItems / itemsPerColumn);
+        $list.css('column-count', columnCount);
+    });
+}
+
+// Load user projects for both desktop and mobile views
+function loadUserProjects() {
+    // If we have cached projects and they're not stale, use them
+    if (allProjects.length > 0 && (Date.now() - lastRefreshTime < REFRESH_THRESHOLD)) {
+        displayPaginatedProjects(1);
+        renderProjects(allProjects, '#mobileProjectsList');
+        return;
+    }
+    
+    if (pendingRequests['projects']) {
+        return;
+    }
+    
+    // Show loading indicators
+    $('#projectsList, #mobileProjectsList').html(`
+        <div class="text-center py-3">
+            <div class="spinner-border spinner-border-sm text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <p class="small text-muted mt-2 mb-0">Loading projects...</p>
+        </div>
+    `);
+    
+    pendingRequests['projects'] = true;
+
+    $.ajax({
+        url: '/Project/GetProjects',
+        type: 'GET',
+        dataType: 'json',
+        success: function (response) {
+            pendingRequests['projects'] = false;
+            lastRefreshTime = Date.now();
+            
+            if (response.success) {
+                // Sort projects alphabetically
+                allProjects = response.data.sort((a, b) => a.projectName.localeCompare(b.projectName));
+                filteredProjects = [...allProjects];
+                
+                // Render projects separately for desktop and mobile
+                displayPaginatedProjects(1);
+                renderProjects(allProjects, '#mobileProjectsList');
+                
+                // Check if we need to expand to an active page
+                checkAndExpandActivePagePath();
+            } else {
+                showErrorMessage('#projectsList', response.message || 'Failed to load projects');
+                showErrorMessage('#mobileProjectsList', response.message || 'Failed to load projects');
+            }
+        },
+        error: function (xhr, status, error) {
+            pendingRequests['projects'] = false;
+            showErrorMessage('#projectsList', 'An error occurred while loading projects');
+            showErrorMessage('#mobileProjectsList', 'An error occurred while loading projects');
+        }
+    });
+}
+
+// Render projects to the specified container
+function renderProjects(projects, containerId) {
+    const container = $(containerId);
+
+    if (!container.length) {
+        return;
+    }
+
+    if (!projects || projects.length === 0) {
+        container.html(`
+            <div class="empty-state p-3">
+                <p class="text-muted small mb-0">No projects available</p>
+            </div>
+        `);
+        return;
+    }
+
+    let html = '';
+
+    projects.forEach(function (project) {
+        html += `
+            <div class="project-section">
+                <div class="project-item d-flex align-items-center" data-id="${project.projectId}" data-name="${project.projectName}">
+                    <i class="bi bi-folder me-2"></i>
+                    <span class="project-name flex-grow-1">${project.projectName}</span>
+                    <i class="bi bi-chevron-down project-expand-icon"></i>
+                </div>
+                <div class="module-list" style="display: none;">
+                    <div class="loading-modules p-2">
+                        <div class="d-flex align-items-center">
+                            <div class="spinner-border spinner-border-sm text-primary me-2" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <span class="small">Loading modules...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+    });
+
+    container.html(html);
+
+    // Add click handler for project items
+    $(`${containerId} .project-item`).on('click', function () {
+        const projectId = $(this).data('id');
+        const projectName = $(this).data('name');
+        const moduleList = $(this).next('.module-list');
+
+        // Toggle module list visibility
+        moduleList.slideToggle(200);
+        $(this).find('.project-expand-icon').toggleClass('rotated');
+
+        // Load modules if they haven't been loaded yet
+        if (moduleList.find('.loading-modules').length > 0) {
+            loadProjectModules(projectId, projectName);
+        }
+    });
+}
+
+// Load modules for a project
+function loadProjectModules(projectId, projectName) {
+    const moduleList = $(`.project-item[data-id="${projectId}"]`).next('.module-list');
+
+    if (!moduleList.length) {
+        return;
+    }
+
+    // Show loading indicator
+    moduleList.html(`
+        <div class="loading-modules p-2">
+            <div class="d-flex align-items-center">
+                <div class="spinner-border spinner-border-sm text-primary me-2" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <span class="small">Loading modules...</span>
+            </div>
+        </div>
+    `);
+
+    $.ajax({
+        url: '/Project/GetProjectModules',
+        type: 'GET',
+        data: { projectId: projectId },
+        dataType: 'json',
+        success: function (response) {
+            if (response.success) {
+                renderModules(response.data, moduleList, projectId, projectName);
+            } else {
+                moduleList.html(`
+                    <div class="p-2">
+                        <div class="alert alert-warning py-2 px-3 mb-0 small">
+                            <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                            ${response.message || 'Failed to load modules'}
+                        </div>
+                    </div>
+                `);
+            }
+        },
+        error: function (xhr, status, error) {
+            moduleList.html(`
+                <div class="p-2">
+                    <div class="alert alert-danger py-2 px-3 mb-0 small">
+                        <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                        An error occurred while loading modules
+                    </div>
+                </div>
+            `);
+        }
+    });
+}
+
+// Render modules for a project
+function renderModules(modules, moduleList, projectId, projectName) {
+    if (!modules || modules.length === 0) {
+        moduleList.html(`
+            <div class="empty-state p-3">
+                <p class="text-muted small mb-0">No modules available</p>
+            </div>
+        `);
+        return;
+    }
+
+    let html = '';
+
+    modules.forEach(function (module) {
+        html += `
+            <div class="module-section">
+                <div class="module-item d-flex align-items-center" data-id="${module.moduleId}" data-name="${module.moduleName}" data-project-id="${projectId}">
+                    <i class="bi bi-journal-text me-2"></i>
+                    <span class="module-name flex-grow-1">${module.moduleName}</span>
+                    <i class="bi bi-chevron-down module-expand-icon"></i>
+                </div>
+                <div class="page-list" style="display: none;">
+                    <div class="loading-pages p-2">
+                        <div class="d-flex align-items-center">
+                            <div class="spinner-border spinner-border-sm text-primary me-2" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <span class="small">Loading pages...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+    });
+
+    moduleList.html(html);
+
+    // Add click handler for module items
+    moduleList.find('.module-item').on('click', function () {
+        const moduleId = $(this).data('id');
+        const moduleName = $(this).data('name');
+        const projectId = $(this).data('project-id');
+        const pageList = $(this).next('.page-list');
+
+        // Toggle page list visibility
+        pageList.slideToggle(200);
+        $(this).find('.module-expand-icon').toggleClass('rotated');
+
+        // Load pages if they haven't been loaded yet
+        if (pageList.find('.loading-pages').length > 0) {
+            loadModulePages(moduleId, moduleName, projectId, pageList);
+        }
+    });
+}
+
+// Load pages for a module
+function loadModulePages(moduleId, moduleName, projectId, pageList) {
+    // Show loading indicator
+    pageList.html(`
+        <div class="loading-pages p-2">
+            <div class="d-flex align-items-center">
+                <div class="spinner-border spinner-border-sm text-primary me-2" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <span class="small">Loading pages...</span>
+            </div>
+        </div>
+    `);
+
+    $.ajax({
+        url: '/Documentation/GetModulePages',
+        type: 'GET',
+        data: { moduleId: moduleId, projectId: projectId },
+        dataType: 'json',
+        success: function (response) {
+            if (response.success) {
+                // Cache the pages using the composite key
+                const compositeKey = `${projectId}_${moduleId}`;
+                allPages[compositeKey] = response.data;
+                renderPages(response.data, pageList);
+            } else {
+                pageList.html(`
+                    <div class="p-2">
+                        <div class="alert alert-warning py-2 px-3 mb-0 small">
+                            <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                            ${response.message || 'Failed to load pages'}
+                        </div>
+                    </div>
+                `);
+            }
+        },
+        error: function (xhr, status, error) {
+            pageList.html(`
+                <div class="p-2">
+                    <div class="alert alert-danger py-2 px-3 mb-0 small">
+                        <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                        An error occurred while loading pages
+                    </div>
+                </div>
+            `);
+        }
+    });
+}
+
+// Render pages for a module
+function renderPages(pages, pageList) {
+    if (!pages || pages.length === 0) {
+        pageList.html(`
+            <div class="empty-state p-3">
+                <p class="text-muted small mb-0">No pages available</p>
+            </div>
+        `);
+        return;
+    }
+
+    let html = '<ul class="nav flex-column page-nav">';
+
+    pages.forEach(function (page) {
+        html += `
+            <li class="nav-item">
+                <a class="nav-link page-link" href="/Documentation/View/${page.pageId}">
+                    <i class="bi bi-file-text me-2"></i>
+                    <span>${page.pageName}</span>
+                </a>
+            </li>
+        `;
+    });
+
+    html += '</ul>';
+
+    pageList.html(html);
+}
+
+// Show error message in container
+function showErrorMessage(containerId, message) {
+    $(containerId).html(`
+        <div class="p-2">
+            <div class="alert alert-danger py-2 px-3 mb-0 small">
+                <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                ${message}
+            </div>
+        </div>
+    `);
+}
+
+// Function to check and expand the active page path
+function checkAndExpandActivePagePath() {
+    // Only run this on documentation pages
+    const currentPageId = getCurrentPageIdFromUrl();
+    if (!currentPageId) {
+        return;
+    }
+
+    // Wait for projects to load
+    const waitForProjects = function() {
+        if (allProjects.length === 0) {
+            setTimeout(waitForProjects, 100);
+            return;
+        }
+
+        // Find the page in our data
+        let foundPage = false;
+        let foundModule = null;
+        let foundProject = null;
+
+        // Get page details from server
+        $.ajax({
+            url: '/Documentation/GetPageDetails',
+            type: 'GET',
+            data: { pageId: currentPageId },
+            success: function(response) {
+                if (!response.success) {
+                    return;
+                }
+
+                const pageDetails = response.data;
+                foundModule = pageDetails.moduleId;
+                foundProject = pageDetails.projectId;
+
+                // Expand the project
+                expandProject();
+            },
+            error: function() {
+                console.error('Failed to get page details');
+            }
+        });
+
+        function expandProject() {
+            if (!foundProject) {
+                return;
+            }
+
+            // Find the project item
+            const projectItem = $(`.project-item[data-id="${foundProject}"]`);
+            if (projectItem.length === 0) {
+                return;
+            }
+
+            // Expand the project if it's not already expanded
+            const moduleList = projectItem.next('.module-list');
+            if (moduleList.is(':visible')) {
+                // Project already expanded, expand the module
+                expandModule();
+            } else {
+                // Click the project to expand it
+                projectItem.click();
+
+                // Wait for modules to load before expanding the module
+                const waitForModules = function() {
+                    if (allModules[foundProject]) {
+                        expandModule();
+                    } else {
+                        setTimeout(waitForModules, 100);
+                    }
+                };
+
+                setTimeout(waitForModules, 300);
+            }
+        }
+
+        function expandModule() {
+            if (!foundModule || !foundProject) {
+                return;
+            }
+
+            // Find the module item
+            const moduleItem = $(`.module-item[data-id="${foundModule}"][data-project-id="${foundProject}"]`);
+            if (moduleItem.length === 0) {
+                return;
+            }
+
+            // Expand the module if it's not already expanded
+            const pageList = moduleItem.next('.page-list');
+            if (pageList.is(':visible')) {
+                // Module already expanded, scroll to the page
+                scrollToActivePage(currentPageId);
+            } else {
+                // Click the module to expand it
+                moduleItem.click();
+
+                // Wait for pages to load before scrolling to the page
+                const compositeKey = `${foundProject}_${foundModule}`;
+                const waitForPages = function() {
+                    if (allPages[compositeKey]) {
+                        scrollToActivePage(currentPageId);
+                    } else {
+                        setTimeout(waitForPages, 100);
+                    }
+                };
+
+                setTimeout(waitForPages, 300);
+            }
+        }
+    };
+
+    waitForProjects();
+}
+
+// Function to scroll to the active page
+function scrollToActivePage(pageId) {
+    const activePage = $(`.page-item[data-id="${pageId}"]`);
+    if (activePage.length) {
+        activePage[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+}
+
+// Function to get the current page ID from URL
+function getCurrentPageIdFromUrl() {
+    if (window.location.href.includes('/Documentation/View')) {
+        const urlParams = new URLSearchParams(window.location.search);
+        const pageId = urlParams.get('Id');
+
+        // Ensure the module stays collapsed after page load
+        if (pageId) {
+            const pageInfo = JSON.parse(localStorage.getItem('page_info_' + pageId) || '{}');
+            if (pageInfo.projectId && pageInfo.moduleId) {
+                const compositeModuleKey = `${pageInfo.projectId}_${pageInfo.moduleId}`;
+                userManuallyClosedModule[compositeModuleKey] = true;
+            }
+        }
+
+        return pageId;
+    }
+    return null;
+}
+
+function displayPaginatedProjects(page) {
+    currentProjectPage = page;
+    const startIndex = (page - 1) * itemsPerPage;
+    const endIndex = Math.min(startIndex + itemsPerPage, filteredProjects.length);
+    const projectsToShow = filteredProjects.slice(startIndex, endIndex);
+
+    let html = '';
+
+    projectsToShow.forEach(function (project) {
+        html += `<div class="project-container">
+            <div class="project-item" data-id="${project.projectId}" data-name="${project.projectName}">
+                <i class="bi bi-folder2 project-icon"></i>
+                <span class="project-name">${project.projectName}</span>
+                <i class="bi bi-chevron-down toggle-icon"></i>
+            </div>
+            <div class="module-list collapse" id="project-${project.projectId}">
+                <div class="loading-modules text-center py-2">
+                    <div class="spinner-border spinner-border-sm text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <p class="small text-muted mt-2 mb-0">Loading modules...</p>
+                </div>
+            </div>
+        </div>`;
+    });
+
+    if (filteredProjects.length > itemsPerPage) {
+        const totalPages = Math.ceil(filteredProjects.length / itemsPerPage);
+
+        html += `<div class="pagination-container">`;
+
+        html += `<button class="pagination-btn" ${page === 1 ? 'disabled' : ''} onclick="displayPaginatedProjects(${page - 1})">
+                    <i class="bi bi-chevron-left"></i>
+                </button>`;
+
+        let startPage = Math.max(1, page - 1);
+        let endPage = Math.min(totalPages, startPage + 2);
+
+        if (endPage - startPage < 2) {
+            startPage = Math.max(1, endPage - 2);
+        }
+
+        for (let i = startPage; i <= endPage; i++) {
+            html += `<button class="pagination-btn ${i === page ? 'btn-primary' : ''}" onclick="displayPaginatedProjects(${i})">${i}</button>`;
+        }
+
+        html += `<button class="pagination-btn" ${page === totalPages ? 'disabled' : ''} onclick="displayPaginatedProjects(${page + 1})">
+                    <i class="bi bi-chevron-down"></i>
+                </button>`;
+
+        html += `</div>`;
+        html += `<div class="pagination-info">Showing ${startIndex + 1}-${endIndex} of ${filteredProjects.length} projects</div>`;
+    }
+
+    $('#projectsList').html(html);
+
+    $('.project-item').on('click', function (e) {
+        e.stopPropagation();
+        const projectId = $(this).data('id');
+        const projectName = $(this).data('name');
+        const moduleList = $('#project-' + projectId);
+        const toggleIcon = $(this).find('.toggle-icon');
+
+        if ($('.sidebar').hasClass('collapsed')) {
+            if (moduleList.find('.loading-modules').length > 0) {
+                loadProjectModules(projectId, projectName);
+            }
+            return;
+        }
+
+        moduleList.collapse('toggle');
+
+        if (toggleIcon.hasClass('bi-chevron-down')) {
+            toggleIcon.removeClass('bi-chevron-down').addClass('bi-chevron-right');
+        } else {
+            toggleIcon.removeClass('bi-chevron-right').addClass('bi-chevron-down');
+        }
+
+        if (moduleList.find('.loading-modules').length > 0) {
+            loadProjectModules(projectId, projectName);
+        }
+    });
+}
+
+function loadProjectModules(projectId, projectName) {
+    if (allModules[projectId]) {
+        displayModules(projectId, projectName, allModules[projectId]);
+        return;
+    }
+
+    if (pendingRequests['modules_' + projectId]) {
+        return;
+    }
+
+    pendingRequests['modules_' + projectId] = true;
+
+    $.ajax({
+        url: '/Project/GetProjectModules',
+        type: 'GET',
+        data: { projectId: projectId },
+        dataType: 'json',
+        success: function (response) {
+            pendingRequests['modules_' + projectId] = false;
+
+            if (response.success) {
+                allModules[projectId] = response.data.sort((a, b) => a.moduleName.localeCompare(b.moduleName));
+                displayModules(projectId, projectName, allModules[projectId]);
+            } else {
+                $('#project-' + projectId).html('<div class="alert alert-danger mx-3 my-2 p-2">Error loading modules</div>');
+            }
+        },
+        error: function () {
+            pendingRequests['modules_' + projectId] = false;
+            $('#project-' + projectId).html('<div class="alert alert-danger mx-3 my-2 p-2">Error connecting to server</div>');
+        }
+    });
+}
+
+function displayModules(projectId, projectName, modules) {
+    allModules[projectId] = modules;
+    
+    const moduleList = $('#project-' + projectId);
+
+    if (modules.length === 0) {
+        moduleList.html('<div class="no-modules text-center py-3 text-muted"><i class="bi bi-journal-x mb-2" style="font-size: 1.2rem;"></i><p class="small">No modules available</p></div>');
+        return;
+    }
+
+    let html = '';
+
+    modules.forEach(function (module) {
+        html += `<div class="module-container">
+            <div class="module-item" data-id="${module.moduleId}" data-project-id="${projectId}" data-name="${module.moduleName}" data-mapping-id="${module.projModuleMappId}">
+                <i class="bi bi-journal-text module-icon"></i>
+                <span class="module-name">${module.moduleName}</span>
+                <i class="bi bi-chevron-down toggle-icon"></i>
+            </div>
+            <div class="page-list" id="module-${projectId}_${module.moduleId}" style="display:none;">
+                <div class="loading-pages text-center py-2">
+                    <div class="spinner-border spinner-border-sm text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <p class="small text-muted mt-2 mb-0">Loading pages...</p>
+                </div>
+            </div>
+        </div>`;
+    });
+
+    moduleList.html(html);
+
+    // Unbind all existing click handlers to prevent duplicates
+    $(document).off('click', '.module-item');
+    
+    // Use a single delegated event handler for all module items
+    $(document).on('click', '.module-item', function(e) {
+        e.stopPropagation();
+        const moduleId = $(this).data('id');
+        const projectId = $(this).data('project-id');
+        const moduleName = $(this).data('name');
+        const compositeModuleKey = `${projectId}_${moduleId}`;
+        const pageList = $(`#module-${compositeModuleKey}`);
+        const toggleIcon = $(this).find('.toggle-icon');
+        
+        // Simple toggle approach
+        const isVisible = pageList.is(':visible');
+        
+        // First close all other page lists
+        $('.page-list').not(pageList).each(function() {
+            const otherList = $(this);
+            if (otherList.is(':visible')) {
+                const otherToggleIcon = otherList.prev('.module-item').find('.toggle-icon');
+                otherToggleIcon.removeClass('bi-chevron-right').addClass('bi-chevron-down');
+               // otherList.slideUp(300);
+            }
+        });
+        
+        // Now toggle the current page list
+        if (isVisible) {
+            toggleIcon.removeClass('bi-chevron-right').addClass('bi-chevron-down');
+            pageList.hide(); // Hides the list instantly
+        } else {
+            toggleIcon.removeClass('bi-chevron-down').addClass('bi-chevron-right');
+            pageList.show(); // Shows the list instantly
+            updateColumnCount();
+
+            // Load pages if needed
+            if (pageList.find('.loading-pages').length > 0) {
+                loadModulePages(moduleId, moduleName, projectId, pageList);
+            }
+        }
+    });
+}
+
+function displayPages(projectId, moduleId, moduleName, pages) {
+    const compositeKey = `${projectId}_${moduleId}`;
+    const pageList = $(`#module-${compositeKey}`);
+
+    if (pages.length === 0) {
+        pageList.html('<div class="no-pages text-center py-3 text-muted"><i class="bi bi-file-x mb-2" style="font-size: 1.2rem;"></i><p class="small">No pages available</p></div>');
+        return;
+    }
+
+    let html = '';
+
+    if (pages.length > 10) {
+        html += `<div class="sidebar-search">
+            <i class="bi bi-search search-icon"></i>
+            <input type="text" class="form-control form-control-sm page-search" data-module-id="${moduleId}" data-project-id="${projectId}" placeholder="Search pages...">
+        </div>`;
+    }
+
+    html += `<div class="pages-container" id="pages-container-${compositeKey}">`;
+
+    pages.forEach(function (page) {
+        const isActive = window.location.href.includes('/Documentation/View') && window.location.href.includes('Id=' + page.pageId);
+        const activeClass = isActive ? 'active' : '';
+
+        html += `<div class="page-item" data-id="${page.pageId}" data-project-id="${projectId}" data-module-id="${moduleId}" >
+            <a href="/Documentation/View?Id=${page.pageId}" class="page-link ${activeClass}">
+                <i class="bi bi-file-text page-icon"></i>
+                <span class="page-name">${page.pageName}</span>
+            </a>
+        </div>`;
+    });
+
+    html += `</div>`;
+
+    if (pages.length > 20) {
+        html += `<div class="pagination-container">
+            <button class="pagination-btn page-prev" data-module-id="${moduleId}" data-project-id="${projectId}" disabled>
+                <i class="bi bi-chevron-left"></i>
+            </button>
+            <span class="page-indicator" data-module-id="${moduleId}" data-project-id="${projectId}">1/${Math.ceil(pages.length / 20)}</span>
+            <button class="pagination-btn page-next" data-module-id="${moduleId}" data-project-id="${projectId}" ${pages.length <= 20 ? 'disabled' : ''}>
+                <i class="bi bi-chevron-down"></i>
+            </button>
+        </div>`;
+    }
+
+    pageList.html(html);
+
+    if (pages.length > 20) {
+        initPagePagination(moduleId, projectId, pages);
+    }
+
+    $(`.page-search[data-module-id="${moduleId}"][data-project-id="${projectId}"]`).on('input', function () {
+        const searchTerm = $(this).val().toLowerCase().trim();
+        const compositeKey = `${projectId}_${moduleId}`;
+        filterPages(moduleId, projectId, searchTerm, compositeKey);
+    });
+
+    $('.page-item a').on('click', function (e) {
+        const pageItem = $(this).parent();
+        const pageId = pageItem.data('id');
+        const projectId = pageItem.data('project-id');
+        const moduleId = pageItem.data('module-id');
+        const compositeModuleKey = `${projectId}_${moduleId}`;
+
+        localStorage.setItem('active_page_id', pageId);
+
+        const pageInfo = {
+            projectId: projectId,
+            moduleId: moduleId,
+            collapsePagesOnLoad: true // Add flag to collapse pages after reload
+        };
+        localStorage.setItem('page_info_' + pageId, JSON.stringify(pageInfo));
+
+        // Set flags to ensure project expands but module collapses after reload
+        userManuallyClosedProject[projectId] = false;
+        userManuallyClosedModule[compositeModuleKey] = true; // Set to true to keep module collapsed
+
+        // Immediately collapse this module's page list
+        const pageList = $(`#module-${compositeModuleKey}`);
+        if (pageList.is(':visible')) {
+            const toggleIcon = $(`.module-item[data-id="${moduleId}"][data-project-id="${projectId}"]`).find('.toggle-icon');
+        }
+    });
+
+    $('.page-link').on('click', function (e) {
+        $('.page-link').removeClass('active');
+        $(this).addClass('active');
+    });
+}
+
+function initPagePagination(moduleId, projectId, pages) {
+    const container = $(`#pages-container-${projectId}_${moduleId}`);
+    const pageItems = container.find('.page-item');
+    const itemsPerPage = 20;
+    let currentPage = 1;
+
+    pageItems.hide();
+    pageItems.slice(0, itemsPerPage).show();
+
+    $(`.page-next[data-module-id="${moduleId}"][data-project-id="${projectId}"]`).on('click', function () {
+        if (currentPage * itemsPerPage < pageItems.length) {
+            pageItems.hide();
+            currentPage++;
+            const start = (currentPage - 1) * itemsPerPage;
+            const end = Math.min(start + itemsPerPage, pageItems.length);
+            pageItems.slice(start, end).show();
+
+            $(`.page-prev[data-module-id="${moduleId}"][data-project-id="${projectId}"]`).prop('disabled', false);
+            $(`.page-next[data-module-id="${moduleId}"][data-project-id="${projectId}"]`).prop('disabled', currentPage * itemsPerPage >= pageItems.length);
+            $(`.page-indicator[data-module-id="${moduleId}"][data-project-id="${projectId}"]`).text(`${currentPage}/${Math.ceil(pageItems.length / 20)}`);
+        }
+    });
+
+    $(`.page-prev[data-module-id="${moduleId}"][data-project-id="${projectId}"]`).on('click', function () {
+        if (currentPage > 1) {
+            pageItems.hide();
+            currentPage--;
+            const start = (currentPage - 1) * itemsPerPage;
+            const end = start + itemsPerPage;
+            pageItems.slice(start, end).show();
+
+            $(`.page-prev[data-module-id="${moduleId}"][data-project-id="${projectId}"]`).prop('disabled', currentPage === 1);
+            $(`.page-next[data-module-id="${moduleId}"][data-project-id="${projectId}"]`).prop('disabled', false);
+            $(`.page-indicator[data-module-id="${moduleId}"][data-project-id="${projectId}"]`).text(`${currentPage}/${Math.ceil(pageItems.length / 20)}`);
+        }
+    });
+}
+
+function filterPages(moduleId, projectId, searchTerm, compositeKey) {
+    const pages = allPages[compositeKey];
+    const container = $(`#pages-container-${compositeKey}`);
+
+    if (!pages) {
+        return;
+    }
+
+    if (!searchTerm) {
+        container.find('.page-item').show();
+        container.find('.no-results').remove();
+        return;
+    }
+
+    let foundAny = false;
+    container.find('.page-item').each(function () {
+        const pageName = $(this).find('.page-name').text().toLowerCase();
+        if (pageName.includes(searchTerm)) {
+            $(this).show();
+            foundAny = true;
+
+            const originalText = $(this).find('.page-name').text();
+            const highlightedText = originalText.replace(
+                new RegExp(searchTerm, 'gi'),
+                match => `<span class="highlight-match">${match}</span>`
+            );
+            $(this).find('.page-name').html(highlightedText);
+        } else {
+            $(this).hide();
+        }
+    });
+
+    if (!foundAny) {
+        if (container.find('.no-results').length === 0) {
+            container.append('<div class="no-results"><i class="bi bi-search me-2"></i>No pages found</div>');
+        }
+    } else {
+        container.find('.no-results').remove();
+    }
+
+    $(`.pagination-container[data-module-id="${moduleId}"][data-project-id="${projectId}"]`).toggle(!searchTerm);
+}
+
+function debounce(func, wait) {
+    let timeout;
+    return function () {
+        const context = this;
+        const args = arguments;
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(context, args), wait);
+    };
+}
+
+// Refresh the sidebar completely
+function refreshSidebar() {
+    allModules = {};
+    allPages = {};
+    userManuallyClosedProject = {};
+    userManuallyClosedModule = {};
+    pendingRequests = {};
+    lastRefreshTime = 0;
+    loadUserProjects();
+}
+
+const debouncedRefresh = debounce(function () {
+    refreshSidebar();
+}, 300);

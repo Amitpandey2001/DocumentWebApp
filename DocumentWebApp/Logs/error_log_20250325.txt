@@ -1,0 +1,15 @@
+==================================================
+Timestamp: 2025-03-25 08:41:43
+Source: DocumentationController.View
+Additional Info: User: admin, PageId: 5
+Error: System.Exception: Failed to download document content
+ ---> System.Net.Http.HttpRequestException: Response status code does not indicate success: 403 (Server failed to authenticate the request. Make sure the value of Authorization header is formed correctly including the signature.).
+   at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at System.Net.Http.HttpClient.GetByteArrayAsyncCore(HttpRequestMessage request, CancellationToken cancellationToken)
+   at MS_DOCS.Services.Implementations.AzureBlobStorageService.DownloadHtmlContentAsync(String fileName, Boolean isSaSUri)
+   --- End of inner exception stack trace ---
+   at MS_DOCS.Services.Implementations.AzureBlobStorageService.DownloadHtmlContentAsync(String fileName, Boolean isSaSUri)
+   at MS_DOCS.Services.Implementations.DocumentationService.GetDocumentationPageByIdAsync(Int32 pageId)
+   at MS_DOCS.Controllers.DocumentationController.View(Int32 id)
+==================================================
+

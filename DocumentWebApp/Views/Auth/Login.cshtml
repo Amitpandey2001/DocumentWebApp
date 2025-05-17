@@ -1,0 +1,210 @@
+@model MS_DOCS.Models.ViewModels.LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = "_AuthLayout";
+}
+
+<div class="login-container">
+    <div class="login-wrapper">
+        <div class="row g-0">
+            <!-- Logo and Branding Section -->
+            <div class="col-md-5 d-flex flex-column justify-content-center align-items-center p-4 brand-section">
+                <div class="text-center mb-3">
+                    <img src="~/images/ms-logo.jpg" alt="MasterSoft Docs Logo" class="img-fluid" style="max-height: 80px;">
+                </div>
+                <h1 class="h2 fw-bold text-center">MasterSoft</h1>
+                <p class="text-muted text-center">A centralized hub for everything related to MasterSoftERP's documentation</p>
+            </div>
+            
+            <!-- Login Form Section -->
+            <div class="col-md-7">
+                <div class="login-card h-100">
+                    <div class="card-body p-4 d-flex flex-column justify-content-center">
+                        <h2 class="text-center mb-4 fw-bold">Sign In</h2>
+                        
+                        @if (TempData["ErrorMessage"] != null)
+                        {
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                                @TempData["ErrorMessage"]
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        }
+                        
+                        <form method="post" asp-controller="Auth" asp-action="Login">
+                            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                            
+                            <div class="mb-3">
+                                <label asp-for="Email" class="form-label">Email address</label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-light border-end-0">
+                                        <i class="bi bi-envelope text-muted"></i>
+                                    </span>
+                                    <input asp-for="Email" class="form-control border-start-0" placeholder="Enter your email" autocomplete="email" autofocus>
+                                </div>
+                                <span asp-validation-for="Email" class="text-danger small"></span>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between">
+                                    <label asp-for="Password" class="form-label">Password</label>
+                                    <a href="#" class="small text-decoration-none text-primary">Forgot password?</a>
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-light border-end-0">
+                                        <i class="bi bi-lock text-muted"></i>
+                                    </span>
+                                    <input asp-for="Password" class="form-control border-start-0" placeholder="Enter your password" autocomplete="current-password">
+                                    <button class="btn btn-outline-secondary border-start-0 password-toggle" type="button">
+                                        <i class="bi bi-eye-slash"></i>
+                                    </button>
+                                </div>
+                                <span asp-validation-for="Password" class="text-danger small"></span>
+                            </div>
+                            
+                            <div class="mb-4 form-check">
+                                <input asp-for="RememberMe" class="form-check-input" type="checkbox">
+                                <label asp-for="RememberMe" class="form-check-label">Remember me</label>
+                            </div>
+                            
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary py-2">
+                                    <i class="bi bi-box-arrow-in-right me-2"></i>Sign In
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center mt-4 small text-muted">
+            <p>&copy; @DateTime.Now.Year Mastersoft ERP. All rights reserved.</p>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        // Toggle password visibility
+        document.querySelector('.password-toggle').addEventListener('click', function() {
+            const passwordInput = document.querySelector('#Password');
+            const icon = this.querySelector('i');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                icon.classList.replace('bi-eye-slash', 'bi-eye');
+            } else {
+                passwordInput.type = 'password';
+                icon.classList.replace('bi-eye', 'bi-eye-slash');
+            }
+        });
+    </script>
+}
+
+@section Styles {
+    <style>
+        body {
+            background-color: var(--jira-bg, #F4F5F7);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .login-container {
+            width: 100%;
+            padding: 1rem;
+        }
+        
+        .login-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .login-card {
+            background-color: white;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 4px 12px rgba(9, 30, 66, 0.15);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .brand-section {
+            background-color: white;
+            border-radius: 8px 0 0 8px;
+            box-shadow: 0 4px 12px rgba(9, 30, 66, 0.15);
+            position: relative;
+        }
+        
+        .brand-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: 1px;
+            background-color: var(--jira-border, #DFE1E6);
+        }
+        
+        .input-group-text {
+            border-radius: 4px 0 0 4px;
+        }
+        
+        .form-control {
+            border-radius: 0 4px 4px 0;
+            height: 42px;
+        }
+        
+        .btn-primary {
+            background-color: var(--jira-primary, #0052CC);
+            border-color: var(--jira-primary, #0052CC);
+            transition: all 0.2s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--jira-primary-hover, #0747A6);
+            border-color: var(--jira-primary-hover, #0747A6);
+            transform: translateY(-1px);
+        }
+        
+        .password-toggle {
+            border-radius: 0 4px 4px 0;
+            border-color: #ced4da;
+            background-color: white;
+        }
+        
+        .password-toggle:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .text-primary {
+            color: var(--jira-primary, #0052CC) !important;
+        }
+        
+        @@media (max-width: 767.98px) {
+            .login-wrapper {
+                max-width: 400px;
+            }
+            
+            .brand-section {
+                border-radius: 8px 8px 0 0;
+                padding: 2rem 1rem;
+            }
+            
+            .brand-section::after {
+                top: auto;
+                right: 0;
+                bottom: 0;
+                height: 1px;
+                width: 100%;
+            }
+            
+            .login-card {
+                border-radius: 0 0 8px 8px;
+            }
+        }
+    </style>
+}

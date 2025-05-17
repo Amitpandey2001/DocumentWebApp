@@ -1,0 +1,634 @@
+@{
+    ViewData["Title"] = "Documentation";
+    Layout = "_Layout";
+}
+
+<style>
+    .number-input {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+        .number-input input {
+            width: 50px;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        .number-input button {
+            border: none;
+            background: #ddd;
+            width: 30px;
+            height: 30px;
+            font-size: 20px;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+            .number-input button:hover {
+                background: #bbb;
+            }
+
+    #mainImagePreviewGrid .mini-preview-card {
+        margin: 5px;
+    }
+</style>
+
+<!-- Page Main Layout Content -->
+<div class="card mb-4" id="DivfetchingForLabels">
+    <!-- Page Main Heading -->
+    <div class="card-header">
+        <div class="heading">
+            <label id="lblDynamicPageTitle">Documentation</label>
+        </div>
+    </div>
+
+    <!-- Page Main Body Content -->
+    <div class="card-body">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-xl-8 col-lg-8 col-sm-12 col-12">
+                    <div class="row">
+                        <div class="col-xl-4 col-lg-4 col-sm-6 col-12">
+                            <div class="form-group">
+                                <div class="label-dynamic">
+                                    <sup>*</sup>
+                                    <label for="ddlProject">Project</label>
+                                </div>
+                                <select class="form-control" id="ddlProject" name="ddlProject" data-select2-enable="true" required>
+                                    <option value="">Please Select</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-sm-6 col-12">
+                            <div class="form-group">
+                                <div class="label-dynamic">
+                                    <sup>*</sup>
+                                    <label for="ddlModule">Module</label>
+                                </div>
+                                <select class="form-control" id="ddlModule" data-select2-enable="true" name="ddlModule" required>
+                                    <option value="">Please Select</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-sm-6 col-12">
+                            <div class="form-group">
+                                <div class="label-dynamic">
+                                    <sup>*</sup>
+                                    <label for="txtDocName">Document Name</label>
+                                </div>
+                                <input type="text" class="form-control" id="txtDocName" name="txtDocName" placeholder="Enter Document Name" />
+                            </div>
+                        </div>
+
+                        <div class="col-xl-8 col-lg-8 col-sm-12 col-12">
+                            <div class="form-group">
+                                <div class="label-dynamic">
+                                    <sup>* </sup>
+                                    <label><span class="Present_Version">Version</span></label>
+                                </div>
+                                <div class="d-flex align-items-center mt-1">
+                                    <!-- Major Version -->
+                                    <div class="number-input">
+                                        <button type="button" class="minus" aria-label="Decrease">−</button>
+                                        <input id="txtmajor" type="number" value="0" min="0" oninput="validateInput(this)" />
+                                        <button type="button" class="plus" aria-label="Increase">+</button>
+                                    </div>
+                                    <i class="bi bi-dot display-6 px-2"></i>
+
+                                    <!-- Minor Version -->
+                                    <div class="number-input">
+                                        <button type="button" class="minus" aria-label="Decrease">−</button>
+                                        <input id="txtminor" type="number" value="0" min="0" oninput="validateInput(this)" />
+                                        <button type="button" class="plus" aria-label="Increase">+</button>
+                                    </div>
+                                    <i class="bi bi-dot display-6 px-2"></i>
+
+                                    <!-- Bug Fix Version -->
+                                    <div class="number-input">
+                                        <button type="button" class="minus" aria-label="Decrease">−</button>
+                                        <input id="txtbug" type="number" value="0" min="0" oninput="validateInput(this)" />
+                                        <button type="button" class="plus" aria-label="Increase">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-12 col-lg-12 col-sm-12 col-12">
+                            <div class="form-group">
+                                <div class="label-dynamic">
+                                    <sup>* </sup>
+                                    <label><span class="clsTemplateBody"></span></label>
+                                </div>
+                                <textarea id="default" rows="5"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-sm-12 col-12 d-none">
+                    <!-- Document Images Section -->
+                    <div class="form-group">
+                        <div class="label-dynamic">
+                            <label>Screenshots (Optional, Max 5)</label>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <button type="button" class="btn btn-outline-primary me-3" id="addScreenshotBtn">
+                                <i class="bi bi-image me-1"></i> Add Screenshots
+                            </button>
+                            <span class="text-muted" id="mainImageCount">No images attached</span>
+                        </div>
+
+                        <!-- Image Preview Grid (mini version) -->
+                        <div id="mainImagePreviewGrid" class="d-flex flex-wrap">
+                            <!-- Small image previews will be added here -->
+                        </div>
+                    </div>
+
+                    <!-- Screenshot Upload Modal -->
+                    <div class="modal fade" id="screenshotModal" tabindex="-1" aria-labelledby="screenshotModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-xl">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="screenshotModalLabel">Add Screenshots</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body p-0">
+                                    <div class="card document-images-card border-0">
+                                        <div class="card-body p-4">
+                                            <!-- Upload Area -->
+                                            <div class="document-images-container">
+                                                <div class="dropzone-container mb-4">
+                                                    <label for="documentImagesDropzone" id="dropzoneLabel" class="form-label">Upload Screenshots</label>
+                                                    <!-- Accessible dropzone with keyboard support -->
+                                                    <div id="documentImagesDropzone" class="dropzone"
+                                                         tabindex="0"
+                                                         role="button"
+                                                         aria-labelledby="dropzoneLabel"
+                                                         aria-describedby="dropzoneDescription"
+                                                         onkeydown="if(event.key === 'Enter' || event.key === ' ') { this.click(); event.preventDefault(); }">
+                                                        <div class="dz-message needsclick">
+                                                            <i class="bi bi-cloud-arrow-up-fill mb-3" aria-hidden="true"></i>
+                                                            <h5>Drop files here or click to upload</h5>
+                                                            <span class="text-muted" id="dropzoneDescription">Upload up to 5 images (.jpg, .png, .gif). Maximum size: 5MB per image.</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Uploaded Images Preview -->
+                                                <div id="uploadedImagesContainer">
+                                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                                        <h6 class="mb-0">Uploaded Images</h6>
+                                                        <span class="text-muted small" id="imageCount">0/5</span>
+                                                    </div>
+                                                    <div id="noImagesMessage" class="alert alert-info py-2">
+                                                        Upload images to add details
+                                                    </div>
+                                                    <div id="imagePreviewGrid" class="row row-cols-1 row-cols-md-3 g-3">
+                                                        <!-- Image previews will be added here -->
+                                                    </div>
+                                                </div>
+
+                                                <!-- Screen reader only instructions -->
+                                                <div class="sr-only" id="uploadInstructions">
+                                                    Press Enter or Space to open the file selector. After uploading, click on an image to add caption and alt text.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary" id="saveScreenshotsBtn">Save Screenshots</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Image Details Modal -->
+                    <div class="modal fade" id="imageDetailsModal" tabindex="-1" aria-labelledby="imageDetailsModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="imageDetailsModalLabel">Image Details</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body p-0">
+                                    <div class="card document-images-card border-0">
+                                        <div class="card-body p-4">
+                                            <div class="row">
+                                                <div class="col-md-5">
+                                                    <div class="image-preview mb-3 mb-md-0 text-center">
+                                                        <img src="" id="modalImagePreview" alt="Preview" class="img-fluid img-thumbnail" style="max-height: 300px;">
+                                                    </div>
+                                                    <p class="text-muted small mt-2" id="modalImageFilename">filename.jpg</p>
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <div class="form-group mb-3">
+                                                        <div class="label-dynamic">
+                                                            <label for="modalImageCaption">Caption</label>
+                                                        </div>
+                                                        <input type="text" class="form-control" id="modalImageCaption" placeholder="Describe what's shown in the image">
+                                                        <div class="form-text">This caption will be displayed below the image in the gallery.</div>
+                                                    </div>
+                                                    <div class="form-group mb-3">
+                                                        <div class="label-dynamic">
+                                                            <label for="modalImageAlt">Alt Text (for accessibility)</label>
+                                                        </div>
+                                                        <input type="text" class="form-control" id="modalImageAlt" placeholder="Describe the image for screen readers">
+                                                        <div class="form-text">Alt text helps visually impaired users understand the image content.</div>
+                                                    </div>
+                                                    <input type="hidden" id="modalImagePath">
+                                                    <input type="hidden" id="modalImageUuid">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-outline-danger me-auto" id="modalDeleteImageBtn">
+                                        <i class="bi bi-trash"></i> Delete Image
+                                    </button>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                    <button type="button" class="btn btn-primary" id="modalSaveImageBtn">Save Details</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-2 mb-3">
+            <!-- Hidden field to store document ID for edit operations -->
+            <input type="hidden" id="hdnDocId" value="" />
+            <input type="button" class="btn btn-sm btn-outline-primary" tabindex="0" value="Save" id="btnSubmit" />
+            <input type="button" class="btn btn-sm btn-outline-danger" tabindex="0" value="Cancel" id="btnCancel" />
+        </div>
+
+        <!-- Documentation List Table -->
+
+        @*   <div class="table-responsive"> *@
+        <table id="tblDocumentation" class="table table-striped table-bordered ">
+        </table>
+
+
+
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/documentation/documentation.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.7.0/tinymce.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.7.0/jquery.tinymce.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/min/dropzone.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/min/dropzone.min.js"></script>
+
+    <style>
+        .dropzone {
+            border: 2px dashed #0087F7;
+            border-radius: 5px;
+            background: #f8f9fa;
+            min-height: 150px;
+            padding: 20px;
+            text-align: center;
+        }
+
+            .dropzone .dz-message {
+                margin: 1em 0;
+            }
+
+                .dropzone .dz-message i {
+                    font-size: 3rem;
+                    color: #0087F7;
+                    margin-bottom: 15px;
+                }
+
+        .image-preview-item {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+            .image-preview-item img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .image-preview-item .remove-image {
+                position: absolute;
+                top: 5px;
+                right: 5px;
+                background: rgba(255, 255, 255, 0.7);
+                border-radius: 50%;
+                width: 20px;
+                height: 20px;
+                text-align: center;
+                line-height: 20px;
+                cursor: pointer;
+            }
+    </style>
+
+    <script>
+        // Initialize Dropzone for document images
+        Dropzone.autoDiscover = false;
+
+        $(document).ready(function() {
+            // Store uploaded files
+            let uploadedImages = [];
+            let currentImageUuid = null;
+
+            // Initialize Bootstrap modals
+            const screenshotModal = new bootstrap.Modal(document.getElementById('screenshotModal'));
+            const imageDetailsModal = new bootstrap.Modal(document.getElementById('imageDetailsModal'));
+
+            // Open screenshot modal when Add Screenshots button is clicked
+            $("#addScreenshotBtn").on('click', function() {
+                screenshotModal.show();
+            });
+
+            // Initialize Dropzone
+            const myDropzone = new Dropzone("#documentImagesDropzone", {
+                url: "/Documentation/UploadImage",
+                paramName: "file",
+                maxFiles: 5,
+                maxFilesize: 2, // MB
+                acceptedFiles: "image/*",
+                addRemoveLinks: false, // We'll handle removal in our custom UI
+                autoProcessQueue: true,
+                init: function() {
+                    this.on("success", function(file, response) {
+                        // Store the uploaded file info
+                        if (response.success) {
+                            const fileInfo = {
+                                name: file.name,
+                                size: file.size,
+                                type: file.type,
+                                path: response.filePath,
+                                thumbnailUrl: response.thumbnailUrl || URL.createObjectURL(file),
+                                uuid: file.upload.uuid,
+                                caption: "",
+                                alt: ""
+                            };
+                            uploadedImages.push(fileInfo);
+
+                            // Add image preview to grid in modal
+                            addImagePreviewToModal(fileInfo);
+
+                            // Update image count
+                            updateImageCount();
+
+                            // Hide the dropzone thumbnail preview since we have our own UI
+                            $(file.previewElement).hide();
+                        } else {
+                            // Show error message
+                            this.removeFile(file);
+                            alert("Error uploading file: " + response.message);
+                        }
+                    });
+
+                    this.on("maxfilesexceeded", function(file) {
+                        this.removeFile(file);
+                        alert("You can only upload up to 5 images.");
+                    });
+
+                    this.on("error", function(file, errorMessage) {
+                        alert(errorMessage);
+                        this.removeFile(file);
+                    });
+                }
+            });
+
+            // Function to add image preview to modal grid
+            function addImagePreviewToModal(fileInfo) {
+                // Hide the "no images" message
+                $("#noImagesMessage").hide();
+
+                // Create preview card for modal
+                const previewHtml = `
+                    <div class="col" id="preview-${fileInfo.uuid}">
+                        <div class="card h-100 image-preview-card" data-uuid="${fileInfo.uuid}">
+                            <div class="position-relative">
+                                <img src="${fileInfo.thumbnailUrl}" class="card-img-top" alt="${fileInfo.name}" style="height: 180px; object-fit: cover;">
+                                <div class="position-absolute top-0 end-0 p-2">
+                                    <button type="button" class="btn btn-sm btn-light rounded-circle remove-image-btn" data-uuid="${fileInfo.uuid}" aria-label="Remove image">
+                                        <i class="bi bi-x"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body p-2">
+                                <p class="card-text small text-truncate mb-2" title="${fileInfo.name}">${fileInfo.name}</p>
+                                <div class="d-flex gap-2">
+                                    <button type="button" class="btn btn-sm btn-outline-primary flex-grow-1 edit-image-btn" data-uuid="${fileInfo.uuid}">
+                                        <i class="bi bi-pencil-square"></i> Edit Details
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                // Append to modal grid
+                $("#imagePreviewGrid").append(previewHtml);
+
+                // Add event listeners
+                $(`#preview-${fileInfo.uuid} .edit-image-btn`).on('click', function() {
+                    const uuid = $(this).data('uuid');
+                    const image = uploadedImages.find(img => img.uuid === uuid);
+                    if (image) {
+                        openImageDetailsModal(image);
+                    }
+                });
+
+                $(`#preview-${fileInfo.uuid} .remove-image-btn`).on('click', function() {
+                    const uuid = $(this).data('uuid');
+                    const image = uploadedImages.find(img => img.uuid === uuid);
+                    if (image) {
+                        removeImage(image.uuid, image.path);
+                    }
+                });
+            }
+
+            // Function to update main form preview
+            function updateMainFormPreview() {
+                // Clear current previews
+                $("#mainImagePreviewGrid").empty();
+
+                // Update count text
+                if (uploadedImages.length === 0) {
+                    $("#mainImageCount").text("No images attached");
+                    return;
+                } else if (uploadedImages.length === 1) {
+                    $("#mainImageCount").text("1 image attached");
+                } else {
+                    $("#mainImageCount").text(`${uploadedImages.length} images attached`);
+                }
+
+                // Add mini previews
+                uploadedImages.forEach(function(img) {
+                    const miniPreviewHtml = `
+                        <div class="col" id="main-preview-${img.uuid}">
+                            <div class="card h-100 mini-preview-card">
+                                <div class="position-relative">
+                                    <img src="${img.thumbnailUrl}" class="card-img-top" alt="${img.name}" style="height: 80px; object-fit: cover;">
+                                    <div class="position-absolute top-0 end-0 p-1">
+                                        <button type="button" class="btn btn-sm btn-light btn-sm rounded-circle main-remove-btn" data-uuid="${img.uuid}" aria-label="Remove image">
+                                            <i class="bi bi-x"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card-body p-1">
+                                    <p class="card-text small text-truncate mb-0" style="font-size: 0.7rem;" title="${img.name}">${img.name}</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+
+                    $("#mainImagePreviewGrid").append(miniPreviewHtml);
+                });
+
+                // Add event listeners to mini previews
+                $(".main-remove-btn").on('click', function() {
+                    const uuid = $(this).data('uuid');
+                    const image = uploadedImages.find(img => img.uuid === uuid);
+                    if (image) {
+                        removeImage(image.uuid, image.path);
+                    }
+                });
+            }
+
+            // Function to open image details modal
+            function openImageDetailsModal(fileInfo) {
+                // Set current image UUID
+                currentImageUuid = fileInfo.uuid;
+
+                // Set modal values
+                $("#modalImagePreview").attr('src', fileInfo.thumbnailUrl);
+                $("#modalImageFilename").text(fileInfo.name);
+                $("#modalImageCaption").val(fileInfo.caption || "");
+                $("#modalImageAlt").val(fileInfo.alt || "");
+                $("#modalImagePath").val(fileInfo.path);
+                $("#modalImageUuid").val(fileInfo.uuid);
+
+                // Show modal
+                imageDetailsModal.show();
+            }
+
+            // Function to update image count
+            function updateImageCount() {
+                $("#imageCount").text(`${uploadedImages.length}/5`);
+
+                // Disable dropzone if max reached
+                if (uploadedImages.length >= 5) {
+                    $("#documentImagesDropzone").addClass('dz-max-files-reached');
+                } else {
+                    $("#documentImagesDropzone").removeClass('dz-max-files-reached');
+                }
+            }
+
+            // Function to remove an image
+            function removeImage(uuid, filePath) {
+                // Remove from Dropzone
+                const file = myDropzone.files.find(f => f.upload.uuid === uuid);
+                if (file) {
+                    myDropzone.removeFile(file);
+                }
+
+                // Remove from our array
+                const index = uploadedImages.findIndex(img => img.uuid === uuid);
+                if (index !== -1) {
+                    uploadedImages.splice(index, 1);
+                }
+
+                // Remove preview from modal
+                $(`#preview-${uuid}`).remove();
+
+                // Remove preview from main form
+                $(`#main-preview-${uuid}`).remove();
+
+                // Update counts and UI
+                updateImageCount();
+                updateMainFormPreview();
+
+                // Show "no images" message if no images left
+                if (uploadedImages.length === 0) {
+                    $("#noImagesMessage").show();
+                }
+
+                // Close modal if it's open for this image
+                if (currentImageUuid === uuid) {
+                    imageDetailsModal.hide();
+                }
+
+                // Call API to delete the file from server
+                $.ajax({
+                    url: "/Documentation/DeleteImage",
+                    type: "POST",
+                    data: { filePath: filePath },
+                    success: function(response) {
+                        console.log("File deleted from server", response);
+                    }
+                });
+            }
+
+            // Handle save button in details modal
+            $("#modalSaveImageBtn").on('click', function() {
+                const uuid = $("#modalImageUuid").val();
+                const caption = $("#modalImageCaption").val();
+                const alt = $("#modalImageAlt").val();
+
+                // Update image data
+                const index = uploadedImages.findIndex(img => img.uuid === uuid);
+                if (index !== -1) {
+                    uploadedImages[index].caption = caption;
+                    uploadedImages[index].alt = alt;
+
+                    // Update preview card if needed
+                    if (caption) {
+                        $(`#preview-${uuid} .card`).addClass('has-caption');
+                    } else {
+                        $(`#preview-${uuid} .card`).removeClass('has-caption');
+                    }
+                }
+
+                // Close modal
+                imageDetailsModal.hide();
+            });
+
+            // Handle delete button in details modal
+            $("#modalDeleteImageBtn").on('click', function() {
+                const uuid = $("#modalImageUuid").val();
+                const path = $("#modalImagePath").val();
+                removeImage(uuid, path);
+            });
+
+            // Handle save button in screenshot modal
+            $("#saveScreenshotsBtn").on('click', function() {
+                // Update main form preview
+                updateMainFormPreview();
+
+                // Close modal
+                screenshotModal.hide();
+            });
+
+            // Add uploadedImages to form data when submitting
+            $("#documentForm").on("submit", function() {
+                // Gather all image details
+                uploadedImages.forEach(function(img) {
+                    // Add hidden inputs with all details
+                    $(this).append(`<input type="hidden" name="DocumentImages[]" value="${img.path}">`);
+                    $(this).append(`<input type="hidden" name="DocumentImageCaptions[]" value="${img.caption}">`);
+                    $(this).append(`<input type="hidden" name="DocumentImageAlts[]" value="${img.alt}">`);
+                });
+
+                return true;
+            });
+        });
+    </script>
+}

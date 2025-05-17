@@ -1,0 +1,40 @@
+==================================================
+Timestamp: 2025-03-21 13:01:43
+Source: TestController.TestErrorLogging
+Additional Info: Test additional info
+Error: System.Exception: This is a test exception to verify error logging
+   at MS_DOCS.Controllers.TestController.TestErrorLogging()
+==================================================
+
+==================================================
+Timestamp: 2025-03-21 15:39:23
+Source: TestController.TestErrorLogging
+Additional Info: Test additional info
+Error: System.Exception: This is a test exception to verify error logging
+   at MS_DOCS.Controllers.TestController.TestErrorLogging() in C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\Controllers\TestController.cs:line 35
+==================================================
+
+==================================================
+Timestamp: 2025-03-21 15:56:43
+Source: DocumentationController.GetDocumentationList
+Additional Info: User: admin
+Error: System.Exception: This is a test exception to verify error logging
+   at MS_DOCS.Controllers.DocumentationController.GetDocumentationList()
+==================================================
+
+==================================================
+Timestamp: 2025-03-21 15:57:10
+Source: DocumentationController.GetDocumentationList
+Additional Info: User: admin
+Error: System.Exception: This is a test exception to verify error logging
+   at MS_DOCS.Controllers.DocumentationController.GetDocumentationList()
+==================================================
+
+==================================================
+Timestamp: 2025-03-21 15:57:57
+Source: DocumentationController.GetDocumentationList
+Additional Info: User: admin
+Error: System.Exception: This is a test exception to verify error logging
+   at MS_DOCS.Controllers.DocumentationController.GetDocumentationList()
+==================================================
+

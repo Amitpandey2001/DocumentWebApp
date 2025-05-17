@@ -1,0 +1,586 @@
+@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "_Layout";
+}
+
+<!-- Page Main Layout Content -->
+<div class="card mb-4" id="DivfetchingForLabels">
+
+    <!-- Page Main Body Content -->
+    <div class="card-body">
+        @if (User.Identity?.IsAuthenticated == true)
+        {
+            <div class="row mb-4">
+                <div class="col-12">
+                    <h1 class="h3 mb-0 text-gray-800">
+                        <i class="bi bi-speedometer2 me-2"></i>Dashboard
+                    </h1>
+                    <p class="text-muted">Welcome back, <strong>@User.Identity.Name</strong>! Here's your documentation activity overview.</p>
+                </div>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="row mb-4">
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-primary shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                        My Projects</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800" id="projectCount">Loading...</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="bi bi-folder2 fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-success shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                        My Documents</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800" id="documentCount">Loading...</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="bi bi-file-earmark-text fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-info shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                        Active Modules</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800" id="moduleCount">Loading...</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="bi bi-grid-3x3-gap fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-warning shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                        Recent Views</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800" id="viewCount">Loading...</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="bi bi-eye fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Row -->
+            <div class="row">
+                <!-- System Overview Dashboard -->
+                <div class="col-lg-6 mb-4">
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-primary">System Overview</h6>
+                            <div class="dropdown no-arrow">
+                                <a class="dropdown-toggle" href="#" role="button" id="dashboardMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-three-dots-vertical"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dashboardMenuLink">
+                                    <li><a class="dropdown-item" href="#" id="refreshDashboard">Refresh Data</a></li>
+                                    <li><a class="dropdown-item" href="#" id="exportDashboard">Export Report</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="dashboard-container">
+                                <!-- Project Module Distribution -->
+                                <div class="row mb-4">
+                                    <div class="col-12">
+                                        <h5 class="text-muted mb-3">Project-Module Distribution</h5>
+                                        <div class="chart-container" style="position: relative; height:180px;">
+                                            <canvas id="moduleDistributionChart"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Recent Project Activities -->
+                                <div class="row mb-4">
+                                    <div class="col-12">
+                                        <h5 class="text-muted mb-3">Recent Project Activities</h5>
+                                        <div class="table-responsive">
+                                            <table class="table table-sm">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Project</th>
+                                                        <th>Action</th>
+                                                        <th>User</th>
+                                                        <th>Date</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="recentActivitiesTable">
+                                                    <tr>
+                                                        <td><span class="text-primary">PHINMA</span></td>
+                                                        <td>Module Added</td>
+                                                        <td>Shahbaz Ahmad</td>
+                                                        <td>Today</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><span class="text-primary">USA</span></td>
+                                                        <td>Document Updated</td>
+                                                        <td>Swapnil Thakare</td>
+                                                        <td>Yesterday</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><span class="text-primary">RF-CC</span></td>
+                                                        <td>User Added</td>
+                                                        <td>You</td>
+                                                        <td>2 days ago</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Module Status -->
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h5 class="text-muted mb-3">Module Status</h5>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="card mb-3 border-left-success">
+                                                    <div class="card-body py-2">
+                                                        <div class="row no-gutters align-items-center">
+                                                            <div class="col mr-2">
+                                                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Active Modules</div>
+                                                                <div class="h5 mb-0 font-weight-bold text-gray-800" id="activeModuleCount">18</div>
+                                                            </div>
+                                                            <div class="col-auto">
+                                                                <i class="bi bi-check-circle text-success"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="card mb-3 border-left-warning">
+                                                    <div class="card-body py-2">
+                                                        <div class="row no-gutters align-items-center">
+                                                            <div class="col mr-2">
+                                                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Inactive Modules</div>
+                                                                <div class="h5 mb-0 font-weight-bold text-gray-800" id="inactiveModuleCount">3</div>
+                                                            </div>
+                                                            <div class="col-auto">
+                                                                <i class="bi bi-dash-circle text-warning"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Progress -->
+                <div class="col-lg-6 mb-4">
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-primary">Project Documentation Progress</h6>
+                            <div class="dropdown no-arrow">
+                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-three-dots-vertical"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
+                                    <li><a class="dropdown-item" href="#" id="refreshProgress">Refresh Data</a></li>
+                                    <li><a class="dropdown-item" href="#" id="showAllProjects">Show All Projects</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div id="projectProgressCharts">
+                                <!-- Project progress bars will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="row justify-content-center mt-5">
+                <div class="col-md-8 text-center">
+                    <i class="bi bi-journal-text display-1 text-primary mb-4"></i>
+                    <h1 class="display-4 fw-bold mb-4">MS-DOCS</h1>
+                    <p class="lead mb-5">
+                        Your centralized documentation management system. Store, organize, and access your documentation with ease.
+                        Please log in to get started.
+                    </p>
+                    <div class="d-grid gap-3 d-sm-flex justify-content-sm-center mb-5">
+                        <a asp-controller="Auth" asp-action="Login" class="btn btn-primary px-5">
+                            <i class="bi bi-box-arrow-in-right me-2"></i> Login
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <i class="bi bi-folder2-open display-4 text-primary mb-3"></i>
+                            <h3>Project Management</h3>
+                            <p>Create and organize your documentation projects in a structured manner.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <i class="bi bi-file-earmark-text display-4 text-primary mb-3"></i>
+                            <h3>Document Storage</h3>
+                            <p>Store all your important documents in a secure and accessible location.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <i class="bi bi-people display-4 text-primary mb-3"></i>
+                            <h3>Team Collaboration</h3>
+                            <p>Work together with your team on documentation projects efficiently.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    @if (User.Identity?.IsAuthenticated == true)
+    {
+        <!-- Include Chart.js -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        
+        <script>
+            $(document).ready(function () {
+                // Load dashboard data
+                loadDashboardData();
+                
+                // Load project progress
+                loadProjectProgress();
+                
+                // Initialize system overview
+                initSystemOverview();
+                
+                // Set up refresh button
+                $("#refreshProgress").click(function(e) {
+                    e.preventDefault();
+                    loadProjectProgress();
+                });
+                
+                // Set up refresh dashboard button
+                $("#refreshDashboard").click(function(e) {
+                    e.preventDefault();
+                    initSystemOverview();
+                });
+                
+                // Set up export dashboard button
+                $("#exportDashboard").click(function(e) {
+                    e.preventDefault();
+                    alert("Export functionality will be available soon!");
+                });
+            });
+            
+            function loadDashboardData() {
+                // Simulate loading dashboard data
+                setTimeout(function() {
+                    $("#projectCount").text("5");
+                    $("#documentCount").text("24");
+                    $("#moduleCount").text("8");
+                    $("#viewCount").text("142");
+                }, 500);
+                
+                // In a real application, you would use AJAX to fetch this data
+                /*
+                $.ajax({
+                    url: '/Home/GetDashboardStats',
+                    type: 'GET',
+                    success: function(data) {
+                        $("#projectCount").text(data.projectCount);
+                        $("#documentCount").text(data.documentCount);
+                        $("#moduleCount").text(data.moduleCount);
+                        $("#viewCount").text(data.viewCount);
+                    },
+                    error: function() {
+                        console.error("Failed to load dashboard data");
+                    }
+                });
+                */
+            }
+            
+            function initSystemOverview() {
+                // Initialize module distribution chart
+                initModuleDistributionChart();
+                
+                // In a real application, you would use AJAX to fetch this data
+                /*
+                $.ajax({
+                    url: '/Home/GetSystemOverview',
+                    type: 'GET',
+                    success: function(data) {
+                        // Update module distribution chart
+                        updateModuleDistributionChart(data.moduleDistribution);
+                        
+                        // Update recent activities table
+                        updateRecentActivitiesTable(data.recentActivities);
+                        
+                        // Update module status
+                        updateModuleStatus(data.moduleStatus);
+                    },
+                    error: function() {
+                        console.error("Failed to load system overview");
+                    }
+                });
+                */
+            }
+            
+            function initModuleDistributionChart() {
+                // Get the canvas element
+                var ctx = document.getElementById('moduleDistributionChart').getContext('2d');
+                
+                // Sample data - module distribution
+                var labels = ['PHINMA', 'USA', 'RF-CC', 'WEB'];
+                var moduleCounts = [10, 8, 12, 6];
+                
+                // Create the chart
+                var moduleDistributionChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: [
+                            {
+                                label: 'Modules',
+                                data: moduleCounts,
+                                borderColor: '#4e73df',
+                                backgroundColor: 'rgba(78, 115, 223, 0.1)',
+                                borderWidth: 2,
+                                pointBackgroundColor: '#4e73df',
+                                pointBorderColor: '#fff',
+                                pointBorderWidth: 1,
+                                pointRadius: 3,
+                                tension: 0.3
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                                labels: {
+                                    boxWidth: 10,
+                                    usePointStyle: true,
+                                    pointStyle: 'circle'
+                                }
+                            },
+                            tooltip: {
+                                mode: 'index',
+                                intersect: false
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                grid: {
+                                    drawBorder: false,
+                                    color: 'rgba(0, 0, 0, 0.05)'
+                                },
+                                ticks: {
+                                    maxTicksLimit: 5
+                                }
+                            },
+                            x: {
+                                grid: {
+                                    display: false
+                                }
+                            }
+                        }
+                    }
+                });
+                
+                // Store the chart instance for later updates
+                window.moduleDistributionChart = moduleDistributionChart;
+            }
+            
+            function updateModuleDistributionChart(data) {
+                // Update the module distribution chart with real data
+                // This would be implemented when the AJAX call is in place
+            }
+            
+            function updateRecentActivitiesTable(data) {
+                // Update the recent activities table with real data
+                // This would be implemented when the AJAX call is in place
+            }
+            
+            function updateModuleStatus(data) {
+                // Update the module status with real data
+                // This would be implemented when the AJAX call is in place
+            }
+            
+            function loadProjectProgress() {
+                // Simulate loading project progress
+                var projects = [
+                    { name: "PHINMA", progress: 85, color: "success" },
+                    { name: "USA", progress: 45, color: "warning" },
+                    { name: "RF-CC", progress: 92, color: "success" },
+                    { name: "WEB", progress: 20, color: "danger" }
+                ];
+                
+                var container = $("#projectProgressCharts");
+                container.html('');
+                
+                $.each(projects, function(i, project) {
+                    container.append(`
+                        <h4 class="small font-weight-bold">${project.name} <span class="float-end">${project.progress}%</span></h4>
+                        <div class="progress mb-4">
+                            <div class="progress-bar bg-${project.color}" role="progressbar" style="width: ${project.progress}%"
+                                aria-valuenow="${project.progress}" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    `);
+                });
+            }
+        </script>
+        
+        <style>
+            /* Timeline styling */
+            .timeline-container {
+                padding: 1.5rem;
+                padding-left: 1rem;
+            }
+            
+            .timeline-item {
+                position: relative;
+                padding-left: 3rem;
+                padding-bottom: 2rem;
+            }
+            
+            .timeline-item:last-child {
+                padding-bottom: 0;
+            }
+            
+            .timeline-item-marker {
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+            
+            .timeline-item-marker-text {
+                font-size: 0.75rem;
+                color: #a7aeb8;
+                margin-bottom: 0.25rem;
+            }
+            
+            .timeline-item-marker-indicator {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 2rem;
+                height: 2rem;
+                border-radius: 100%;
+                color: #fff;
+                font-size: 0.875rem;
+            }
+            
+            .timeline-item-content {
+                padding-top: 0.25rem;
+            }
+            
+            /* Quick Access Documents styling */
+            .quick-access-container {
+                max-height: 350px;
+                overflow-y: auto;
+            }
+            
+            .quick-access-list .list-group-item {
+                transition: all 0.2s ease;
+                border-left: 0;
+                border-right: 0;
+                padding: 0.75rem 1rem;
+            }
+            
+            .quick-access-list .list-group-item:first-child {
+                border-top: 0;
+            }
+            
+            .quick-access-list .list-group-item:last-child {
+                border-bottom: 0;
+            }
+            
+            .quick-access-list .list-group-item:hover {
+                background-color: rgba(13, 110, 253, 0.05);
+                cursor: pointer;
+            }
+            
+            .quick-access-item .document-icon {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 2.5rem;
+                height: 2.5rem;
+                border-radius: 0.5rem;
+                background-color: rgba(13, 110, 253, 0.1);
+                font-size: 1.25rem;
+            }
+            
+            .quick-access-item .document-icon .bi-file-earmark-text {
+                color: #0d6efd;
+            }
+            
+            .quick-access-item .document-icon .bi-file-earmark-code {
+                color: #198754;
+            }
+            
+            .quick-access-item .document-icon .bi-file-earmark-richtext {
+                color: #dc3545;
+            }
+            
+            .favorite-toggle {
+                color: #6c757d;
+                text-decoration: none;
+                font-size: 1.1rem;
+                transition: all 0.2s ease;
+            }
+            
+            .favorite-toggle:hover {
+                transform: scale(1.2);
+            }
+            
+            .favorite-toggle .bi-star-fill {
+                color: #ffc107 !important;
+            }
+        </style>
+    }
+}

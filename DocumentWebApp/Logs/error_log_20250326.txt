@@ -1,0 +1,60 @@
+==================================================
+Timestamp: 2025-03-26 09:12:27
+Source: DocumentationController.SearchDocuments
+Additional Info: User: admin, Query: time
+Error: System.ArgumentException: Column 'PageName' does not belong to table Table.
+   at System.Data.DataRow.GetDataColumn(String columnName)
+   at System.Data.DataRow.get_Item(String columnName)
+   at MS_DOCS.Services.Implementations.DocumentationService.MapToDocumentSearchResults(DataTable dataTable)
+   at MS_DOCS.Services.Implementations.DocumentationService.SearchDocumentsAsync(String query, Int32 userId)
+   at MS_DOCS.Controllers.DocumentationController.SearchDocuments(String query)
+==================================================
+
+==================================================
+Timestamp: 2025-03-26 09:12:42
+Source: DocumentationController.SearchDocuments
+Additional Info: User: admin, Query: time
+Error: System.ArgumentException: Column 'DocumentType' does not belong to table Table.
+   at System.Data.DataRow.GetDataColumn(String columnName)
+   at System.Data.DataRow.get_Item(String columnName)
+   at MS_DOCS.Services.Implementations.DocumentationService.MapToDocumentSearchResults(DataTable dataTable)
+   at MS_DOCS.Services.Implementations.DocumentationService.SearchDocumentsAsync(String query, Int32 userId)
+   at MS_DOCS.Controllers.DocumentationController.SearchDocuments(String query)
+==================================================
+
+==================================================
+Timestamp: 2025-03-26 09:13:31
+Source: DocumentationController.SearchDocuments
+Additional Info: User: admin, Query: time
+Error: System.ArgumentException: Column 'DocumentType' does not belong to table Table.
+   at System.Data.DataRow.GetDataColumn(String columnName)
+   at System.Data.DataRow.get_Item(String columnName)
+   at MS_DOCS.Services.Implementations.DocumentationService.MapToDocumentSearchResults(DataTable dataTable)
+   at MS_DOCS.Services.Implementations.DocumentationService.SearchDocumentsAsync(String query, Int32 userId)
+   at MS_DOCS.Controllers.DocumentationController.SearchDocuments(String query)
+==================================================
+
+==================================================
+Timestamp: 2025-03-26 10:27:12
+Source: AuthController.Login
+Additional Info: Login attempt for email: shahbaz.ahmad@mastersofterp.com
+Error: System.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+ ---> System.ComponentModel.Win32Exception (53): The network path was not found.
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at MS_DOCS.Services.Implementations.SQLHelper.ExecuteReaderSP(String procedureName, SqlParameter[] parameters) in C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\Services\Implementations\SQLHelper.cs:line 24
+   at MS_DOCS.Services.Implementations.UserService.GetUserByEmail(String email) in C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\Services\Implementations\UserService.cs:line 26
+   at MS_DOCS.Controllers.AuthController.Login(LoginViewModel model) in C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\Controllers\AuthController.cs:line 48
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:53,State:0,Class:20
+==================================================
+

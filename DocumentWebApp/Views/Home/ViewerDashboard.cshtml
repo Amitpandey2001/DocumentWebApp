@@ -1,0 +1,241 @@
+@{
+    ViewData["Title"] = "Documentation Viewer";
+    Layout = "_Layout";
+}
+
+<!-- Main Content Area -->
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Documentation Viewer</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <div class="input-group me-2">
+            <input type="text" class="form-control" id="searchInput" placeholder="Search documents...">
+            <button class="btn btn-outline-secondary" type="button" id="btnSearch" data-bs-toggle="modal" data-bs-target="#searchModal">
+                <i class="bi bi-search"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Dashboard Content -->
+<div class="row">
+    <!-- Recent Documents -->
+    <div class="col-md-6 mb-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Recent Documents</h5>
+                <div class="dropdown">
+                    <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="recentDocsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-filter"></i>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="recentDocsDropdown">
+                        <li><a class="dropdown-item" href="#">All Documents</a></li>
+                        <li><a class="dropdown-item" href="#">My Documents</a></li>
+                        <li><a class="dropdown-item" href="#">Shared With Me</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card-body">
+                <div id="recentDocsList">
+                    <div class="d-flex justify-content-center">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Activity -->
+@*     <div class="col-md-6 mb-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Project Activity</h5>
+                <select class="form-select form-select-sm w-auto" id="projectFilter">
+                    <option value="">All Projects</option>
+                </select>
+            </div>
+            <div class="card-body">
+                <div id="projectActivity">
+                    <div class="d-flex justify-content-center">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> *@
+</div>
+
+<!-- Search Modal -->
+<div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search Results</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="searchResults">
+                    <div class="alert alert-info">
+                        Enter a search term to find documents.
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            // Load recent documents
+            loadRecentDocuments();
+
+            // Load project filter options
+            loadProjectOptions();
+
+            // Handle search button click
+            $('#btnSearch').on('click', function() {
+                searchDocuments();
+            });
+        });
+
+        function loadRecentDocuments() {
+            $.ajax({
+                url: '/Documentation/GetRecentDocuments',
+                type: 'GET',
+                success: function(response) {
+                    if (response.success) {
+                        displayRecentDocuments(response.data);
+                    } else {
+                        console.error('Error loading recent documents:', response.message);
+                        $('#recentDocsList').html('<div class="alert alert-danger">Error loading recent documents</div>');
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error loading recent documents:', error);
+                    $('#recentDocsList').html('<div class="alert alert-danger">Error loading recent documents</div>');
+                }
+            });
+        }
+
+        function displayRecentDocuments(documents) {
+            if (!documents || documents.length === 0) {
+                $('#recentDocsList').html('<div class="alert alert-info">No recent documents available</div>');
+                return;
+            }
+
+            let html = '<div class="list-group">';
+            documents.forEach(function(doc) {
+                html += `
+                    <a href="/Documentation/View/${doc.pageId}" class="list-group-item list-group-item-action">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h6 class="mb-1">${doc.pageName}</h6>
+                            <small>${formatDate(doc.lastViewedDate || doc.modifiedDate || doc.createdDate)}</small>
+                        </div>
+                        <p class="mb-1">${doc.projectName} > ${doc.moduleName}</p>
+                    </a>
+                `;
+            });
+            html += '</div>';
+
+            $('#recentDocsList').html(html);
+        }
+
+        function loadProjectOptions() {
+            $.ajax({
+                url: '/Project/GetProjects',
+                type: 'GET',
+                success: function(response) {
+                    if (response.success) {
+                        populateProjectFilter(response.data);
+                    } else {
+                        console.error('Error loading project options:', response.message);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error loading project options:', error);
+                }
+            });
+        }
+
+        function populateProjectFilter(projects) {
+            if (!projects || projects.length === 0) {
+                return;
+            }
+
+            let html = '<option value="">All Projects</option>';
+            projects.forEach(function(project) {
+                html += `<option value="${project.projectId}">${project.projectName}</option>`;
+            });
+
+            $('#projectFilter').html(html);
+        }
+
+        function searchDocuments() {
+            const searchTerm = $('#searchInput').val();
+            const projectId = $('#projectFilter').val();
+
+            if (!searchTerm) {
+                $('#searchResults').html('<div class="alert alert-info">Please enter a search term</div>');
+                return;
+            }
+
+            $.ajax({
+                url: '/Documentation/SearchDocuments',
+                type: 'GET',
+                data: {
+                    searchTerm: searchTerm,
+                    projectId: projectId
+                },
+                success: function(response) {
+                    if (response.success) {
+                        displaySearchResults(response.data);
+                    } else {
+                        console.error('Error searching documents:', response.message);
+                        $('#searchResults').html('<div class="alert alert-danger">Error searching documents</div>');
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error searching documents:', error);
+                    $('#searchResults').html('<div class="alert alert-danger">Error searching documents</div>');
+                }
+            });
+        }
+
+        function displaySearchResults(results) {
+            if (!results || results.length === 0) {
+                $('#searchResults').html('<div class="alert alert-info">No results found</div>');
+                return;
+            }
+
+            let html = '<div class="list-group">';
+            results.forEach(function(result) {
+                html += `
+                    <a href="/Documentation/View/${result.pageId}" class="list-group-item list-group-item-action">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h6 class="mb-1">${result.pageName}</h6>
+                            <small>${formatDate(result.lastUpdatedDate || result.modifiedDate || result.createdDate)}</small>
+                        </div>
+                        <p class="mb-1">${result.projectName} > ${result.moduleName}</p>
+                        <small>${result.excerpt || ''}</small>
+                    </a>
+                `;
+            });
+            html += '</div>';
+
+            $('#searchResults').html(html);
+        }
+
+        function formatDate(dateString) {
+            if (!dateString) return '';
+            const date = new Date(dateString);
+            return date.toLocaleDateString();
+        }
+    </script>
+}

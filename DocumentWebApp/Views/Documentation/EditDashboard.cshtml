@@ -1,0 +1,211 @@
+@{
+    ViewData["Title"] = "Edit Documentation";
+    Layout = "_Layout";
+}
+
+<!-- Page Main Layout Content -->
+<div class="card mb-4">
+    <!-- Page Main Heading -->
+    <div class="card-header">
+        <div class="heading">
+            <label id="lblDynamicPageTitle">Edit Documentation</label>
+        </div>
+        <!-- Page Bookmark -->
+        <div id="bookmarkPage" title="Bookmark Page" class="bookmark-icon">
+            <i class="bi bi-bookmark"></i>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <!-- Project Filter -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <h5 class="mb-0">Projects</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group" id="project-list">
+                            <!-- Projects will be loaded here -->
+                            <div class="d-flex justify-content-center">
+                                <div class="spinner-border text-primary" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Modules -->
+            <div class="col-md-8 mb-4">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <h5 class="mb-0">Documentation Pages</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="modules-container">
+                            <p class="text-muted text-center">Select a project to view its modules and documentation pages</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            // Load projects
+            loadProjects();
+            
+            // Handle project selection
+            $(document).on('click', '.project-item', function() {
+                const projectId = $(this).data('project-id');
+                $('.project-item').removeClass('active');
+                $(this).addClass('active');
+                loadProjectModules(projectId);
+            });
+            
+            // Handle module expansion
+            $(document).on('click', '.module-header', function() {
+                const moduleId = $(this).data('module-id');
+                const projectId = $('.project-item.active').data('project-id');
+                const modulePages = $(`#module-${moduleId}-pages`);
+                
+                if (modulePages.hasClass('show')) {
+                    modulePages.collapse('hide');
+                } else {
+                    modulePages.collapse('show');
+                    if (modulePages.children().length === 0) {
+                        loadModulePages(projectId, moduleId, $(this).text().trim());
+                    }
+                }
+            });
+        });
+        
+        function loadProjects() {
+            $.ajax({
+                url: '/Project/GetProjects',
+                type: 'GET',
+                success: function(response) {
+                    if (response.success) {
+                        const projectList = $('#project-list');
+                        projectList.empty();
+                        
+                        if (response.data.length === 0) {
+                            projectList.html('<p class="text-center text-muted">No projects found</p>');
+                            return;
+                        }
+                        
+                        response.data.forEach(project => {
+                            projectList.append(`
+                                <a href="#" class="list-group-item list-group-item-action project-item" data-project-id="${project.projectId}">
+                                    ${project.projectName}
+                                </a>
+                            `);
+                        });
+                    } else {
+                        console.error('Error loading projects:', response.message);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('AJAX error:', error);
+                }
+            });
+        }
+        
+        function loadProjectModules(projectId) {
+            $.ajax({
+                url: '/Documentation/GetProjectModules',
+                type: 'GET',
+                data: { projectId: projectId },
+                success: function(response) {
+                    if (response.success) {
+                        const modulesContainer = $('#modules-container');
+                        modulesContainer.empty();
+                        
+                        if (response.data.length === 0) {
+                            modulesContainer.html('<p class="text-center text-muted">No modules found for this project</p>');
+                            return;
+                        }
+                        
+                        const accordion = $('<div class="accordion" id="modulesAccordion"></div>');
+                        
+                        response.data.forEach(module => {
+                            accordion.append(`
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed module-header" type="button" 
+                                                data-bs-toggle="collapse" data-bs-target="#module-${module.moduleId}-pages" 
+                                                data-module-id="${module.moduleId}">
+                                            ${module.moduleName}
+                                        </button>
+                                    </h2>
+                                    <div id="module-${module.moduleId}-pages" class="accordion-collapse collapse" data-bs-parent="#modulesAccordion">
+                                        <div class="accordion-body">
+                                            <div class="d-flex justify-content-center">
+                                                <div class="spinner-border spinner-border-sm text-primary" role="status">
+                                                    <span class="visually-hidden">Loading...</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            `);
+                        });
+                        
+                        modulesContainer.append(accordion);
+                    } else {
+                        console.error('Error loading modules:', response.message);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('AJAX error:', error);
+                }
+            });
+        }
+        
+        function loadModulePages(projectId, moduleId, moduleName) {
+            $.ajax({
+                url: '/Documentation/GetModulePages',
+                type: 'GET',
+                data: { 
+                    moduleId: moduleId,
+                    projectId: projectId
+                },
+                success: function(response) {
+                    if (response.success) {
+                        const pagesList = $(`#module-${moduleId}-pages .accordion-body`);
+                        pagesList.empty();
+                        
+                        if (response.data.length === 0) {
+                            pagesList.html('<p class="text-center text-muted">No pages found for this module</p>');
+                            return;
+                        }
+                        
+                        const list = $('<div class="list-group"></div>');
+                        
+                        response.data.forEach(page => {
+                            list.append(`
+                                <a href="/Documentation/View/${page.pageId}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                    ${page.title}
+                                    <span class="badge bg-primary rounded-pill">
+                                        <i class="bi bi-pencil"></i>
+                                    </span>
+                                </a>
+                            `);
+                        });
+                        
+                        pagesList.append(list);
+                    } else {
+                        console.error('Error loading pages:', response.message);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('AJAX error:', error);
+                }
+            });
+        }
+    </script>
+}

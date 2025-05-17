@@ -1,0 +1,780 @@
+/* Jira-inspired Theme for MS-DOCS
+   This CSS file provides styling to make the sidebar and navbar resemble Jira's interface
+*/
+
+:root {
+    --jira-primary: #0052CC;
+    --jira-primary-hover: #0747A6;
+    --jira-bg: #F4F5F7;
+    --jira-sidebar-bg: #FAFBFC;
+    --jira-sidebar-width: 240px;
+    --jira-sidebar-collapsed-width: 56px;
+    --jira-text: #172B4D;
+    --jira-text-secondary: #6B778C;
+    --jira-border: #DFE1E6;
+    --jira-nav-hover: #EBECF0;
+    --jira-nav-active: #E6EFFC;
+    --jira-icon-color: #42526E;
+    --jira-header-height: 56px;
+    --bs-body-font-size: 0.85rem;
+}
+
+/* Navbar Styling */
+header.navbar {
+    background-color: white !important;
+    box-shadow: 0 1px 1px rgba(9, 30, 66, 0.25);
+    height: var(--jira-header-height);
+    padding: 0;
+    z-index: 1030;
+}
+
+.navbar-brand {
+    /*background-color: white;*/
+    color: var(--jira-text) !important;
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 0 16px;
+    height: var(--jira-header-height);
+    display: flex;
+    align-items: center;
+    box-shadow: none;
+}
+
+.navbar-brand i, .navbar-brand span {
+    color: var(--jira-text);
+}
+
+#sidebarToggle {
+    background: transparent;
+    border: none;
+    color: var(--jira-text);
+    margin-left: 8px;
+}
+
+#sidebarToggle:hover {
+    background-color: var(--jira-nav-hover);
+}
+
+.navbar-search {
+    margin-left: 16px;
+}
+
+    .navbar-search .search-box-top {
+        display:flex;
+        align-items: center;
+        position:relative;
+    }
+        .navbar-search .search-box-top .bi-search {
+            position:absolute;
+            left:10px;
+        }
+        .navbar-search .search-box-top #clearSearch {
+            position: absolute;
+            right: 10px;
+            font-size:1rem;
+        }
+
+.navbar-search .form-control {
+    border: 1px solid #ced4da;
+    color: var(--jira-text);
+    padding-left: 35px;
+    border-radius: 3px;
+    transition: background-color 0.2s;
+}
+
+.navbar-search .form-control::placeholder {
+    color: var(--jira-text-secondary);
+}
+
+    .navbar-search .form-control:focus {
+        background-color: white;
+        color: var(--jira-text);
+        box-shadow: 0;
+        border-color: #86b7fe;
+    }
+
+.navbar-search .search-icon {
+    color: var(--jira-text-secondary);
+}
+
+.navbar-nav .nav-link {
+    color: var(--jira-text) !important;
+    padding: 0 16px;
+    height: var(--jira-header-height);
+    display: flex;
+    align-items: center;
+}
+
+.navbar-nav .nav-link:hover {
+    background-color: var(--jira-nav-hover);
+}
+
+    .navbar-nav .nav-link.dropdown-toggle::after {
+        display:none;
+    }
+
+    /* Sidebar Styling */
+    .sidebar {
+    background-color: var(--jira-sidebar-bg);
+    border-right: 1px solid var(--jira-border);
+    width: var(--jira-sidebar-width);
+    box-shadow: 0 0 5px rgba(9, 30, 66, 0.1);
+    top: var(--jira-header-height);
+    padding: 0;
+    z-index: 99;
+    transition: all 0.3s ease;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: calc(100vh - var(--jira-header-height));
+}
+
+@media (min-width: 768px) {
+    .sidebar.collapsed {
+        width: var(--jira-sidebar-collapsed-width);
+    }
+}
+
+.sidebar-sticky {
+    height: 100%;
+    padding-top: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* Sidebar Scrollbar */
+.sidebar-sticky::-webkit-scrollbar {
+    width: 4px;
+}
+
+.sidebar-sticky::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.sidebar-sticky::-webkit-scrollbar-thumb {
+    background-color: rgba(9, 30, 66, 0.2);
+    border-radius: 4px;
+}
+
+.sidebar-sticky::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(9, 30, 66, 0.4);
+}
+
+/* User Profile Section */
+.user-profile {
+    padding: 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--jira-border);
+    margin: 0;
+    background-color: transparent;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+}
+
+.user-avatar {
+    margin-right: 12px;
+    margin-bottom: 0;
+}
+
+.user-profile h6 {
+    margin-bottom: 2px;
+    color: var(--jira-text);
+    font-weight: 500;
+}
+
+.user-profile small {
+    color: var(--jira-text-secondary);
+}
+
+/* Sidebar Headings */
+.sidebar-heading {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--jira-text-secondary);
+    padding: 16px 16px 8px;
+    margin: 0;
+    font-weight: 700;
+    border-bottom: none;
+}
+
+/* Navigation Items */
+.nav-item {
+    margin: 2px 0;
+}
+
+.nav-link {
+    color: var(--jira-text) !important;
+    padding: 8px 16px;
+    border-radius: 3px;
+    margin: 0 8px;
+    transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+}
+
+.nav-link i {
+    margin-right: 12px;
+    font-size: 16px;
+    color: var(--jira-icon-color);
+    width: 20px;
+    text-align: center;
+}
+
+.nav-link:hover {
+    background-color: var(--jira-nav-hover);
+    text-decoration: none;
+}
+
+.nav-link.active {
+    background-color: var(--jira-nav-active);
+    color: var(--jira-primary) !important;
+    font-weight: 500;
+}
+
+.nav-link.active i {
+    color: var(--jira-primary);
+}
+
+/* Project and Module Items */
+.project-container {
+    margin-bottom: 8px;
+    transition: all 0.2s ease;
+}
+
+.project-container:last-child {
+    margin-bottom: 0;
+}
+
+.project-item, .module-item {
+    padding: 10px 16px;
+    margin: 0px;
+    border-radius: 4px;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.project-item:hover, .module-item:hover {
+    background-color: var(--jira-nav-hover);
+    transform: translateX(2px);
+    box-shadow: 0 1px 2px rgba(9, 30, 66, 0.1);
+}
+
+.project-item:active, .module-item:active {
+    background-color: var(--jira-nav-active);
+    transform: translateX(0);
+}
+
+.project-icon, .module-icon {
+    color: var(--jira-icon-color);
+    margin-right: 12px;
+    width: 20px;
+    text-align: center;
+    font-size: 16px;
+    transition: transform 0.2s ease;
+}
+
+.project-name, .module-name {
+    color: var(--jira-text);
+    font-weight: 400;
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: color 0.2s ease;
+}
+
+.project-item:hover .project-name,
+.module-item:hover .module-name {
+    color: var(--jira-primary);
+}
+
+.project-item:hover .project-icon {
+    color: var(--jira-primary);
+    transform: scale(1.1);
+}
+
+.module-item:hover .module-icon {
+    color: var(--jira-primary);
+}
+
+.toggle-icon {
+    transition: transform 0.2s ease, color 0.2s ease;
+    font-size: 14px;
+    color: var(--jira-icon-color);
+}
+
+.project-item:hover .toggle-icon,
+.module-item:hover .toggle-icon {
+    color: var(--jira-primary);
+}
+
+/* Module list styling */
+.module-list {
+    padding-left: 0px;
+    margin-left: 25px;
+    border-left: 1px dashed var(--jira-border);
+    transition: all 0.3s ease;
+}
+
+/* Add subtle visual indicator for active project */
+.project-item.active {
+    background-color: var(--jira-nav-active);
+}
+
+.project-item.active .project-name,
+.project-item.active .project-icon {
+    color: var(--jira-primary);
+}
+
+/* Add subtle animation for expanding/collapsing */
+.module-list.collapsing {
+    transition-duration: 0.2s;
+}
+
+/* Page container and items styling */
+.pages-container {
+    padding: 4px 0;
+    transition: all 0.2s ease;
+}
+
+.page-item {
+    margin: 4px 0;
+    transition: all 0.2s ease;
+}
+
+.page-link {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    margin: 0 4px;
+    border-radius: 3px;
+    color: var(--jira-text);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    font-size: 0.9rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-link:hover {
+    background-color: var(--jira-nav-hover);
+    transform: translateX(2px);
+    color: var(--jira-primary);
+    text-decoration: none;
+}
+
+.page-link:active {
+    transform: translateX(0);
+}
+
+.page-link.active {
+    background-color: var(--jira-nav-active);
+    color: var(--jira-primary);
+    font-weight: 500;
+    border-left: 2px solid var(--jira-primary);
+    padding-left: 10px;
+}
+
+.page-icon {
+    color: var(--jira-icon-color);
+    margin-right: 10px;
+    font-size: 14px;
+    transition: transform 0.2s ease, color 0.2s ease;
+    flex-shrink: 0;
+}
+
+.page-name {
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: color 0.2s ease;
+}
+
+.page-link:hover .page-icon {
+    color: var(--jira-primary);
+    transform: scale(1.1);
+}
+
+.page-link.active .page-icon {
+    color: var(--jira-primary);
+}
+
+/* Add subtle ripple effect on click */
+.page-link::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(0, 82, 204, 0.3);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%, -50%);
+    transform-origin: 50% 50%;
+}
+
+.page-link:active::after {
+    animation: ripple 0.6s ease-out;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0, 0) translate(-50%, -50%);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(20, 20) translate(-50%, -50%);
+        opacity: 0;
+    }
+}
+
+/* Improve pagination for pages */
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 0;
+    margin-top: 8px;
+    border-top: 1px solid var(--jira-border);
+}
+
+.page-indicator {
+    margin: 0 8px;
+    font-size: 12px;
+    color: var(--jira-text-secondary);
+}
+
+/* Main Content Area */
+.main-content {
+    background-color: var(--jira-bg);
+    padding-top: 16px;
+    margin-top: var(--jira-header-height);
+    transition: margin-left 0.3s ease, width 0.3s ease;
+    min-height: calc(100vh - var(--jira-header-height));
+    position: relative;
+}
+
+@media (min-width: 768px) {
+    .main-content {
+        margin-left: var(--jira-sidebar-width);
+        width: calc(100% - var(--jira-sidebar-width));
+    }
+    
+    body.sidebar-collapsed .main-content {
+        margin-left: var(--jira-sidebar-collapsed-width);
+        width: calc(100% - var(--jira-sidebar-collapsed-width));
+    }
+}
+
+/* Collapsed Sidebar Styles */
+@media (min-width: 768px) {
+
+    .sidebar.collapsed {
+        width: var(--jira-sidebar-collapsed-width);
+    }
+    
+    .sidebar.collapsed .nav-link span,
+    .sidebar.collapsed .project-name,
+    .sidebar.collapsed .module-name,
+    .sidebar.collapsed .sidebar-heading span,
+    .sidebar.collapsed .user-profile h6,
+    .sidebar.collapsed .user-profile small {
+        display: none;
+    }
+    
+    .sidebar.collapsed .nav-link,
+    .sidebar.collapsed .project-item,
+    .sidebar.collapsed .module-item {
+        padding: 8px 0;
+        justify-content: center;
+    }
+    
+    .sidebar.collapsed .nav-link i,
+    .sidebar.collapsed .project-icon,
+    .sidebar.collapsed .module-icon {
+        margin-right: 0;
+        font-size: 18px;
+    }
+    
+    .sidebar.collapsed .user-profile {
+        justify-content: center;
+    }
+    
+    .sidebar.collapsed .user-avatar {
+        margin-right: 0;
+    }
+    
+    .sidebar.collapsed .sidebar-heading {
+        text-align: center;
+        padding: 16px 0 8px;
+    }
+
+    /* Improved collapsed sidebar functionality */
+    .sidebar.collapsed .module-list,
+    .sidebar.collapsed .page-list {
+        position: absolute;
+        left: var(--jira-sidebar-collapsed-width);
+        width: 220px;
+        background-color: var(--jira-sidebar-bg);
+        border: 1px solid var(--jira-border);
+        border-left: none;
+        box-shadow: 2px 0 5px rgba(9, 30, 66, 0.1);
+        border-radius: 0 4px 4px 0;
+        padding: 8px 0;
+        margin-left: 0;
+        z-index: 100;
+        display: none;
+    }
+    
+    /* Ensure project containers are positioned relatively */
+    .sidebar.collapsed .project-container {
+        position: relative;
+    }
+    
+    /* Fix for module-list and page-list display */
+    .sidebar.collapsed .project-item:hover + .module-list,
+    .sidebar.collapsed .module-list:hover,
+    .sidebar.collapsed .module-item:hover + .page-list,
+    .sidebar.collapsed .page-list:hover {
+        display: block !important; /* Force display with !important */
+    }
+    
+    /* Override Bootstrap collapse class for flyout menus */
+    .sidebar.collapsed .module-list.collapse,
+    .sidebar.collapsed .page-list.collapse {
+        display: none;
+    }
+    
+    .sidebar.collapsed .module-list.collapse.show,
+    .sidebar.collapsed .page-list.collapse.show {
+        display: none;
+    }
+    
+    .sidebar.collapsed .project-item:hover + .module-list.collapse,
+    .sidebar.collapsed .module-list.collapse:hover,
+    .sidebar.collapsed .module-item:hover + .page-list.collapse,
+    .sidebar.collapsed .page-list.collapse:hover {
+        display: block !important;
+    }
+    
+    /* Target the actual HTML structure */
+    .sidebar.collapsed .project-container .project-item:hover + div,
+    .sidebar.collapsed .project-container div.collapse:hover,
+    .sidebar.collapsed .module-container .module-item:hover + div,
+    .sidebar.collapsed .module-container div.collapse:hover {
+        display: block !important;
+    }
+    
+    /* Style items within flyout menus */
+    .sidebar.collapsed .module-list .module-item,
+    .sidebar.collapsed .page-list .page-item {
+        padding: 8px 12px;
+        justify-content: flex-start;
+    }
+
+    .sidebar.collapsed .module-list .module-name,
+    .sidebar.collapsed .page-list .page-name {
+        display: block;
+    }
+
+    .sidebar.collapsed .module-list .module-icon,
+    .sidebar.collapsed .page-list .page-icon {
+        margin-right: 8px;
+    }
+
+    .sidebar.collapsed .toggle-icon {
+        display: none;
+    }
+    
+    /* Add tooltips for items in collapsed sidebar */
+    .sidebar.collapsed .project-item,
+    .sidebar.collapsed .module-item {
+        position: relative;
+    }
+
+    .sidebar.collapsed .project-item::after,
+    .sidebar.collapsed .module-item::after {
+        content: attr(data-name);
+        position: absolute;
+        left: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: var(--jira-text);
+        color: white;
+        padding: 4px 8px;
+        border-radius: 3px;
+        font-size: 12px;
+        white-space: nowrap;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.2s ease;
+        pointer-events: none;
+        z-index: 101;
+    }
+
+    .sidebar.collapsed .project-item:hover::after,
+    .sidebar.collapsed .module-item:hover::after {
+        opacity: 1;
+        visibility: visible;
+        left: calc(100% + 5px);
+    }
+    
+    /* Ensure flyout menus appear at the correct position */
+    .sidebar.collapsed .project-container,
+    .sidebar.collapsed .module-container {
+        position: relative;
+    }
+    
+    .sidebar.collapsed .project-item + .module-list {
+        top: 0;
+    }
+    
+    .sidebar.collapsed .module-item + .page-list {
+        top: 0;
+    }
+    
+    /* JavaScript helper for positioning flyouts */
+    .sidebar.collapsed .flyout-positioned {
+        top: auto !important;
+    }
+}
+
+/* Search Results Container */
+.search-results-container {
+    background-color: white;
+    border-radius: 3px;
+    box-shadow: 0 4px 8px -2px rgba(9, 30, 66, 0.25), 0 0 1px rgba(9, 30, 66, 0.31);
+    border: 1px solid var(--jira-border);
+}
+
+.search-results-header {
+    padding: 12px 16px;
+    font-weight: 500;
+    border-bottom: 1px solid var(--jira-border);
+    background-color: var(--jira-sidebar-bg);
+}
+
+.search-result-item {
+    border-bottom: 1px solid var(--jira-border);
+}
+
+.search-result-link:hover {
+    background-color: var(--jira-nav-hover);
+}
+
+.search-result-title {
+    color: var(--jira-primary);
+}
+
+/* Additional Jira-like Enhancements */
+.hover-effect {
+    background-color: var(--jira-nav-hover);
+}
+
+.toggle-icon {
+    transition: transform 0.2s ease;
+}
+
+[data-bs-toggle="collapse"][aria-expanded="true"] .toggle-icon {
+    transform: rotate(180deg);
+}
+
+/* Pagination styling */
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    margin: 16px 8px;
+    gap: 4px;
+}
+
+.pagination-btn {
+    border: 1px solid var(--jira-border);
+    background-color: white;
+    color: var(--jira-text);
+    border-radius: 3px;
+    padding: 4px 8px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.pagination-btn:hover:not([disabled]) {
+    background-color: var(--jira-nav-hover);
+}
+
+.pagination-btn.btn-primary {
+    background-color: var(--jira-primary);
+    color: white;
+    border-color: var(--jira-primary);
+}
+
+.pagination-btn[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pagination-info {
+    text-align: center;
+    font-size: 12px;
+    color: var(--jira-text-secondary);
+    margin-bottom: 16px;
+}
+
+/* Loading indicators */
+.loading-modules, .loading-pages {
+    padding: 12px;
+    background-color: transparent;
+    border-radius: 3px;
+    margin: 8px;
+    text-align: center;
+}
+
+/* Empty state styling */
+.no-modules, .no-pages, .no-projects {
+    padding: 16px;
+    text-align: center;
+    color: var(--jira-text-secondary);
+    font-size: 0.9rem;
+    background-color: var(--jira-bg);
+    border-radius: 4px;
+    margin: 8px;
+}
+
+/* Improve sidebar overlay for mobile */
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(9, 30, 66, 0.5);
+    z-index: 98;
+    display: none;
+}
+
+.sidebar-overlay.show {
+    display: block;
+}
+
+@media (max-width: 991px) {
+    .navbar-collapse {
+        background-color: var(--bs-white);
+    }
+    .navbar-search {
+        width: 92%;
+    }
+    .navbar-nav .dropdown-menu {
+        position: absolute;
+    }
+}

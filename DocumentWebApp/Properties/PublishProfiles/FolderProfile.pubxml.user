@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\Shahbaz\Project Int new\docs.mastersofterp.com\publish-07-04-self-contain</_PublishTargetUrl>
+    <History>True|2025-04-07T05:39:24.4683674Z||;True|2025-04-07T10:48:24.2454023+05:30||;True|2025-03-26T09:20:11.8129539+05:30||;True|2025-03-24T09:29:38.1017122+05:30||;True|2025-03-21T16:12:23.0502347+05:30||;True|2025-03-19T15:35:36.6234812+05:30||;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Server=172.21.1.50%3bDatabase=DB_MS_DOCS%3bUser Id=ShahbazAhmad%3bPassword=fr%40Traf6menld5ophlx#%3b</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>

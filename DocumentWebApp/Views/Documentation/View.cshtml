@@ -1,0 +1,75 @@
+@model MS_DOCS.Models.DocumentationPage
+@{
+    ViewData["Title"] = Model.PageName;
+    Layout = "_Layout";
+}
+
+<div class="container-fluid mt-4">
+    <div class="row">
+        <div class="col-12">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">Home</li>
+                    <li class="breadcrumb-item">@Model.ProjectName</li>
+                    <li class="breadcrumb-item">@Model.ModuleName</li>
+                    <li class="breadcrumb-item active" aria-current="page">@Model.PageName</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-8">
+            <h1 class="h2">@Model.PageName</h1>
+        </div>
+        <div class="col-md-4 text-end">
+            <div class="btn-group" role="group">
+                @*     <a href="#" class="btn btn-outline-secondary" onclick="window.print()">
+                    <i class="bi bi-printer"></i> Print
+                </a> *@
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card shadow-sm">
+                <div class="card-header bg-light">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <small class="text-muted">Version: @Model.Version</small>
+                        </div>
+                        <div>
+                            <small class="text-muted">
+                                Created by: @Model.CreatorName on @Model.CreatedDate.ToString("MMM dd, yyyy")
+                                @if (Model.ModifiedDate.HasValue)
+                                {
+                                    <span>| Last updated: @Model.ModifiedDate.Value.ToString("MMM dd, yyyy")</span>
+                                }
+                            </small>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="documentation-content">
+                        @Html.Raw(Model.Content)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: false });
+
+        window.addEventListener('DOMContentLoaded', () => {
+          const diagrams = document.querySelectorAll('.mermaid');
+          mermaid.run({ nodes: [...diagrams] });
+        });
+    </script>
+
+}

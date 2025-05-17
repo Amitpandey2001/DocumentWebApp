@@ -1,0 +1,286 @@
+@model List<MS_DOCS.Models.Project>
+@{
+    ViewData["Title"] = "Projects";
+    Layout = "_Layout";
+}
+
+<!-- Page Main Layout Content -->
+<div class="card mb-4" id="DivfetchingForLabels">
+    <!-- Page Main Heading -->
+    <div class="card-header">
+        <div class="heading">
+            <label id="lblDynamicPageTitle">Projects</label>
+        </div>
+    </div>
+
+    <!-- Page Main Body Content -->
+    <div class="card-body">
+        <div class="col-12">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" id="projectTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="projects-tab" data-bs-toggle="tab" data-bs-target="#projects" type="button" role="tab" aria-controls="projects" aria-selected="true">Projects</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="modules-tab" data-bs-toggle="tab" data-bs-target="#modules" type="button" role="tab" aria-controls="modules" aria-selected="false">Modules</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="mappings-tab" data-bs-toggle="tab" data-bs-target="#mappings" type="button" role="tab" aria-controls="mappings" aria-selected="false">Project Module Mapping</button>
+                </li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content mt-3">
+                <!-- Projects Tab -->
+                <div class="tab-pane fade show active" id="projects" role="tabpanel" aria-labelledby="projects-tab">
+                    <div class="text-end mb-3">
+                        <button type="button" class="btn btn-sm btn-outline-primary" onclick="ProjectManager.createProject()">
+                            <i class="bi bi-plus-circle"></i> Create Project
+                        </button>
+                    </div>
+                    <div class="table-responsive">
+                        <table id="projectsTable" class="table table-striped table-bordered nowrap">
+                            <thead>
+                                <tr>
+                                    <th>Project Name</th>
+                                    <th>Description</th>
+                                    <th>Created By</th>
+                                    <th>Created Date</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Projects will be dynamically added here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Modules Tab -->
+                <div class="tab-pane fade" id="modules" role="tabpanel" aria-labelledby="modules-tab">
+                    <div class="text-end mb-3">
+                        <button type="button" class="btn btn-sm btn-outline-primary" onclick="ProjectManager.createModule()">
+                            <i class="bi bi-plus-circle"></i> Create Module
+                        </button>
+                    </div>
+                    <div class="table-responsive">
+                        <table id="modulesTable" class="table table-striped table-bordered nowrap">
+                            <thead>
+                                <tr>
+                                    <th>Module Name</th>
+                                    <th>Description</th>
+                                    <th>Created By</th>
+                                    <th>Created Date</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Modules will be dynamically added here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Project Module Mapping Tab -->
+                <div class="tab-pane fade" id="mappings" role="tabpanel" aria-labelledby="mappings-tab">
+                    <div class="text-end mb-3">
+                        <button type="button" class="btn btn-sm btn-outline-primary" onclick="ProjectManager.createMapping()">
+                            <i class="bi bi-plus-circle"></i> Create Mapping
+                        </button>
+                    </div>
+                    <div>
+                        <table id="mappingsTable" class="table table-striped table-bordered nowrap">
+                            <thead>
+                                <tr>
+                                    <th>Project</th>
+                                    <th>Module</th>
+                                    <th>Created Date</th>
+                                    <th>Modified Date</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Mappings will be dynamically added here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Project Modal -->
+<div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalTitle">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="projectModalTitle">Create Project</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Error Alert -->
+                <div id="modalError" style="display: none;">
+                    <div class="alert alert-danger"></div>
+                </div>
+
+                <form id="projectForm">
+                    <input type="hidden" id="projectId" value="" />
+
+                    <div class="form-group">
+                        <div class="label-dynamic">
+                            <sup>*</sup>
+                            <label for="projectName">Project Name</label>
+                        </div>
+                        <input type="text" class="form-control" id="projectName" maxlength="100" required />
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <div class="label-dynamic">
+                            <label for="projectDescription">Description</label>
+                        </div>
+                        <textarea class="form-control" id="projectDescription" rows="3" maxlength="1000"></textarea>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="projectIsActive" checked>
+                            <label class="form-check-label" for="projectIsActive">Active</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-outline-primary" id="saveProject">Save</button>
+                <button type="button" class="btn btn-sm btn-outline-danger" data-bs-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Module Modal -->
+<div class="modal fade" id="moduleModal" tabindex="-1" aria-labelledby="moduleModalTitle">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="moduleModalTitle">Create Module</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Error Alert -->
+                <div id="moduleModalError" style="display: none;">
+                    <div class="alert alert-danger"></div>
+                </div>
+
+                <form id="moduleForm">
+                    <input type="hidden" id="moduleId" value="" />
+
+                    <div class="form-group">
+                        <div class="label-dynamic">
+                            <sup>*</sup>
+                            <label for="moduleName">Module Name</label>
+                        </div>
+                        <input type="text" class="form-control" id="moduleName" maxlength="100" required />
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <div class="label-dynamic">
+                            <label for="moduleDescription">Description</label>
+                        </div>
+                        <textarea class="form-control" id="moduleDescription" rows="3" maxlength="1000"></textarea>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="moduleIsActive" checked>
+                            <label class="form-check-label" for="moduleIsActive">Active</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-outline-primary" id="saveModule">Save</button>
+                <button type="button" class="btn btn-sm btn-outline-danger" data-bs-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Project Module Mapping Modal -->
+<div class="modal fade" id="mappingModal" tabindex="-1" aria-labelledby="mappingModalTitle">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="mappingModalTitle">Create Project Module Mapping</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Error Alert -->
+                <div id="mappingModalError" style="display: none;">
+                    <div class="alert alert-danger"></div>
+                </div>
+
+                <form id="mappingForm">
+                    <input type="hidden" id="mappingId" value="" />
+
+                    <div class="form-group">
+                        <div class="label-dynamic">
+                            <sup>*</sup>
+                            <label for="mappingProject">Project</label>
+                        </div>
+                        <select class="form-control" id="mappingProject" required>
+                            <option value="">Select Project</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <div class="label-dynamic">
+                            <sup>*</sup>
+                            <label for="mappingModule">Module</label>
+                        </div>
+                        <select class="form-control" id="mappingModule" required>
+                            <option value="">Select Module</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="mappingIsActive" checked>
+                            <label class="form-check-label" for="mappingIsActive">Active</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-outline-primary" id="saveMapping">Save</button>
+                <button type="button" class="btn btn-sm btn-outline-danger" data-bs-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Confirmation Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Delete Project</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete this project?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-sm btn-outline-danger" id="confirmDelete">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/project/project.js"></script>
+}

@@ -1,0 +1,184 @@
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\bin\Debug\net6.0\appsettings.Development.json
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\bin\Debug\net6.0\appsettings.json
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\bin\Debug\net6.0\MS-DOCS.staticwebassets.runtime.json
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\bin\Debug\net6.0\MS-DOCS.staticwebassets.endpoints.json
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\bin\Debug\net6.0\MS-DOCS.exe
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\bin\Debug\net6.0\MS-DOCS.deps.json
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\bin\Debug\net6.0\MS-DOCS.runtimeconfig.json
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\bin\Debug\net6.0\MS-DOCS.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\bin\Debug\net6.0\MS-DOCS.pdb
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\bin\Debug\net6.0\Azure.Core.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\bin\Debug\net6.0\Azure.Identity.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\bin\Debug\net6.0\Azure.Storage.Blobs.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\bin\Debug\net6.0\Azure.Storage.Common.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\bin\Debug\net6.0\BCrypt.Net-Next.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\bin\Debug\net6.0\Microsoft.Identity.Client.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\bin\Debug\net6.0\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\bin\Debug\net6.0\System.ClientModel.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\bin\Debug\net6.0\System.Data.SqlClient.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\bin\Debug\net6.0\System.IO.Hashing.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\bin\Debug\net6.0\System.Memory.Data.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\bin\Debug\net6.0\System.Security.Permissions.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\bin\Debug\net6.0\System.Text.Json.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\bin\Debug\net6.0\MS-DOCS.DAL.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\bin\Debug\net6.0\MS-DOCS.DAL.pdb
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\obj\Debug\net6.0\MS-DOCS.csproj.AssemblyReference.cache
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\obj\Debug\net6.0\MS-DOCS.GeneratedMSBuildEditorConfig.editorconfig
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\obj\Debug\net6.0\MS-DOCS.AssemblyInfoInputs.cache
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\obj\Debug\net6.0\MS-DOCS.AssemblyInfo.cs
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\obj\Debug\net6.0\MS-DOCS.csproj.CoreCompileInputs.cache
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\obj\Debug\net6.0\MS-DOCS.MvcApplicationPartsAssemblyInfo.cache
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\obj\Debug\net6.0\MS-DOCS.RazorAssemblyInfo.cache
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\obj\Debug\net6.0\MS-DOCS.RazorAssemblyInfo.cs
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\obj\Debug\net6.0\scopedcss\bundle\MS-DOCS.styles.css
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\obj\Debug\net6.0\scopedcss\projectbundle\MS-DOCS.bundle.scp.css
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\obj\Debug\net6.0\staticwebassets.build.json
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\obj\Debug\net6.0\staticwebassets.development.json
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\obj\Debug\net6.0\staticwebassets.build.endpoints.json
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\obj\Debug\net6.0\staticwebassets\msbuild.MS-DOCS.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\obj\Debug\net6.0\staticwebassets\msbuild.MS-DOCS.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\obj\Debug\net6.0\staticwebassets\msbuild.build.MS-DOCS.props
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.MS-DOCS.props
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.MS-DOCS.props
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\obj\Debug\net6.0\staticwebassets.upToDateCheck.txt
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\obj\Debug\net6.0\MS-DOCS.csproj.Up2Date
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\obj\Debug\net6.0\MS-DOCS.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\obj\Debug\net6.0\refint\MS-DOCS.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\obj\Debug\net6.0\MS-DOCS.pdb
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\obj\Debug\net6.0\MS-DOCS.genruntimeconfig.cache
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\MS-DOCS\MS-DOCS\obj\Debug\net6.0\ref\MS-DOCS.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\appsettings.Development.json
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\appsettings.json
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\MS-DOCS.staticwebassets.runtime.json
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\MS-DOCS.staticwebassets.endpoints.json
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\MS-DOCS.exe
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\MS-DOCS.deps.json
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\MS-DOCS.runtimeconfig.json
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\MS-DOCS.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\MS-DOCS.pdb
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\Azure.Core.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\Azure.Identity.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\Azure.Storage.Blobs.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\Azure.Storage.Common.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\BCrypt.Net-Next.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\Microsoft.Identity.Client.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\System.ClientModel.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\System.Data.SqlClient.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\System.IO.Hashing.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\System.Memory.Data.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\System.Security.Permissions.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\System.Text.Json.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\mastersofterp.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\MS-DOCS.DAL.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\MS-DOCS.DAL.pdb
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\obj\Debug\net6.0\MS-DOCS.csproj.AssemblyReference.cache
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\obj\Debug\net6.0\MS-DOCS.GeneratedMSBuildEditorConfig.editorconfig
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\obj\Debug\net6.0\MS-DOCS.AssemblyInfoInputs.cache
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\obj\Debug\net6.0\MS-DOCS.AssemblyInfo.cs
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\obj\Debug\net6.0\MS-DOCS.csproj.CoreCompileInputs.cache
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\obj\Debug\net6.0\MS-DOCS.MvcApplicationPartsAssemblyInfo.cache
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\obj\Debug\net6.0\MS-DOCS.RazorAssemblyInfo.cache
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\obj\Debug\net6.0\MS-DOCS.RazorAssemblyInfo.cs
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\obj\Debug\net6.0\scopedcss\bundle\MS-DOCS.styles.css
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\obj\Debug\net6.0\scopedcss\projectbundle\MS-DOCS.bundle.scp.css
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\obj\Debug\net6.0\staticwebassets.build.json
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\obj\Debug\net6.0\staticwebassets.development.json
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\obj\Debug\net6.0\staticwebassets.build.endpoints.json
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\obj\Debug\net6.0\staticwebassets\msbuild.MS-DOCS.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\obj\Debug\net6.0\staticwebassets\msbuild.MS-DOCS.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\obj\Debug\net6.0\staticwebassets\msbuild.build.MS-DOCS.props
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.MS-DOCS.props
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.MS-DOCS.props
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\obj\Debug\net6.0\MS-DOCS.csproj.Up2Date
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\obj\Debug\net6.0\MS-DOCS.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\obj\Debug\net6.0\refint\MS-DOCS.dll
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\obj\Debug\net6.0\MS-DOCS.pdb
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\obj\Debug\net6.0\MS-DOCS.genruntimeconfig.cache
+C:\Shahbaz\Project Int new\docs.mastersofterp.com\msdochub-2204\ms-docs\MS-DOCS\obj\Debug\net6.0\ref\MS-DOCS.dll
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\appsettings.Development.json
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\appsettings.json
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\MS-DOCS.staticwebassets.endpoints.json
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\MS-DOCS.staticwebassets.runtime.json
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\MS-DOCS.exe
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\MS-DOCS.deps.json
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\MS-DOCS.runtimeconfig.json
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\MS-DOCS.dll
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\MS-DOCS.pdb
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\Azure.Core.dll
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\Azure.Identity.dll
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\Azure.Storage.Blobs.dll
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\Azure.Storage.Common.dll
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\BCrypt.Net-Next.dll
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\Microsoft.Identity.Client.dll
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\System.ClientModel.dll
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\System.Data.SqlClient.dll
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\System.IO.Hashing.dll
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\System.Memory.Data.dll
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\System.Security.Permissions.dll
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\System.Text.Json.dll
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\mastersofterp.dll
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\MS-DOCS.DAL.dll
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\bin\Debug\net6.0\MS-DOCS.DAL.pdb
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\obj\Debug\net6.0\MS-DOCS.csproj.AssemblyReference.cache
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\obj\Debug\net6.0\MS-DOCS.GeneratedMSBuildEditorConfig.editorconfig
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\obj\Debug\net6.0\MS-DOCS.AssemblyInfoInputs.cache
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\obj\Debug\net6.0\MS-DOCS.AssemblyInfo.cs
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\obj\Debug\net6.0\MS-DOCS.csproj.CoreCompileInputs.cache
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\obj\Debug\net6.0\MS-DOCS.MvcApplicationPartsAssemblyInfo.cache
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\obj\Debug\net6.0\MS-DOCS.RazorAssemblyInfo.cache
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\obj\Debug\net6.0\MS-DOCS.RazorAssemblyInfo.cs
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\obj\Debug\net6.0\scopedcss\bundle\MS-DOCS.styles.css
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\obj\Debug\net6.0\scopedcss\projectbundle\MS-DOCS.bundle.scp.css
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\obj\Debug\net6.0\staticwebassets.build.json
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\obj\Debug\net6.0\staticwebassets.development.json
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\obj\Debug\net6.0\staticwebassets.build.endpoints.json
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\obj\Debug\net6.0\staticwebassets\msbuild.MS-DOCS.Microsoft.AspNetCore.StaticWebAssets.props
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\obj\Debug\net6.0\staticwebassets\msbuild.MS-DOCS.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\obj\Debug\net6.0\staticwebassets\msbuild.build.MS-DOCS.props
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.MS-DOCS.props
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.MS-DOCS.props
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\obj\Debug\net6.0\staticwebassets.pack.json
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\obj\Debug\net6.0\staticwebassets.upToDateCheck.txt
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\obj\Debug\net6.0\MS-DOCS.csproj.Up2Date
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\obj\Debug\net6.0\MS-DOCS.dll
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\obj\Debug\net6.0\refint\MS-DOCS.dll
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\obj\Debug\net6.0\MS-DOCS.pdb
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\obj\Debug\net6.0\MS-DOCS.genruntimeconfig.cache
+D:\Amitt\CORE P\msdochub-2204\ms-docs\MS-DOCS\obj\Debug\net6.0\ref\MS-DOCS.dll

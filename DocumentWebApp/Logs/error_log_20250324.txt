@@ -1,0 +1,36 @@
+==================================================
+Timestamp: 2025-03-24 13:16:42
+Source: DocumentationController.GetDocumentationList
+Additional Info: User: admin
+Error: System.ArgumentException: Column 'CreatorName' does not belong to table Table.
+   at System.Data.DataRow.GetDataColumn(String columnName)
+   at System.Data.DataRow.get_Item(String columnName)
+   at MS_DOCS.Services.Implementations.DocumentationService.MapToDocumentationPageViewModels(DataTable dataTable)
+   at MS_DOCS.Services.Implementations.DocumentationService.GetDocumentationListAsync()
+   at MS_DOCS.Controllers.DocumentationController.GetDocumentationList()
+==================================================
+
+==================================================
+Timestamp: 2025-03-24 13:17:10
+Source: DocumentationController.GetDocumentationList
+Additional Info: User: admin
+Error: System.ArgumentException: Column 'CreatorName' does not belong to table Table.
+   at System.Data.DataRow.GetDataColumn(String columnName)
+   at System.Data.DataRow.get_Item(String columnName)
+   at MS_DOCS.Services.Implementations.DocumentationService.MapToDocumentationPageViewModels(DataTable dataTable)
+   at MS_DOCS.Services.Implementations.DocumentationService.GetDocumentationListAsync()
+   at MS_DOCS.Controllers.DocumentationController.GetDocumentationList()
+==================================================
+
+==================================================
+Timestamp: 2025-03-24 13:18:56
+Source: DocumentationController.GetDocumentationList
+Additional Info: User: admin
+Error: System.ArgumentException: Column 'CreatorName' does not belong to table Table.
+   at System.Data.DataRow.GetDataColumn(String columnName)
+   at System.Data.DataRow.get_Item(String columnName)
+   at MS_DOCS.Services.Implementations.DocumentationService.MapToDocumentationPageViewModels(DataTable dataTable)
+   at MS_DOCS.Services.Implementations.DocumentationService.GetDocumentationListAsync()
+   at MS_DOCS.Controllers.DocumentationController.GetDocumentationList()
+==================================================
+

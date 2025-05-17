@@ -1,0 +1,681 @@
+﻿ <!-- Page Main Layout Content -->
+<div class="card mb-4" id="DivfetchingForLabels">
+    <!-- Page Main Heading -->
+    <div class="card-header">
+        <div class="heading">
+            <label id="lblDynamicPageTitle" runat="server"></label>
+        </div>
+        <!-- Page Bookmark -->
+        <div id="bookmarkPage" title="Bookmark Page" class="bookmark-icon"><i class="bi bi-bookmark"></i></div>
+        <!-- Page Video Help -->
+        <div class="dropdown dropdown-video  me-1">
+            <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" title="Click for Video Help">
+                <i class="bi bi-play-btn"></i>
+            </a>
+            <div id="myDropdown2" class="dropdown-menu p-2">
+                <h6><i>Video Help</i></h6>
+                <!-- Dynamic Video Link -->
+                <ul class="list-group with-border-bottom fav-list" id="ulvideoLink">
+                    <%--
+                    <li class="list-group-item text-center">
+                        No Links to show
+                    </li>--%>
+                </ul>
+            </div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="dropdown px-1 dropdown-video">
+            <a class="dropbtn help-drawer" href="#" data-drawer="#help-drawer-content"
+               title="Click for Help">
+                <i class="bi bi-question-square"></i>
+            </a>
+        </div>
+
+    </div>
+    <!-- Page Main Body Content -->
+    <div class="card-body">
+        <div class="col-12">
+            <!-- Page Main Inputs Content -->
+            <div class="row">
+                <!-- Dynamic Nav Tabs -->
+                <div class="nav-tabs-custom">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-bs-toggle="tab" href="#tab_1">Awarding Degrees</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#tab_2" onclick="TabCourses(this)">Courses</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#tab_3" onclick="TabDiscipline(this)">Discipline</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#tab_4" onclick="TabStudyLevel(this)">Study Level</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#tab_5" onclick="TabCourseClassification(this)">Course Classification</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#tab_6" onclick="TabCourseBoardClassification(this)">Course Board Classification</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#tab_7" onclick="TabSemester(this)">Semester</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#tab_10" onclick="TabAffiliated(this)">Awarding Institute</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#tab_11" onclick="TabLearningModality(this)">Learning Modality</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#tab_12" onclick="TabSemesterMapping(this)">Semester Mapping</a>
+                        </li>
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <!-- Active Tab -->
+                        <div class="tab-pane active" id="tab_1">
+                            <div class="col-12 mt-3">
+                                <!-- Inputs -->
+                                <div class="row">
+                                    <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <div class="label-dynamic">
+                                                <sup>* </sup>
+                                                <label><span id="lblAwardingDegree" class="AwardingDegree"></span></label>
+                                                <asp:HiddenField ID="HdfCheckEdit" runat="server" Value="0" />
+                                            </div>
+                                            <asp:DropDownList ID="ddlAwardingDegree" runat="server" CssClass="form-control" data-select2-enable="true" TabIndex="0" AppendDataBoundItems="true">
+                                                <asp:ListItem Value="0">Please Select</asp:ListItem>
+                                            </asp:DropDownList>
+                                        </div>
+                                    </div>
+
+                                    <!-- Status Switch -->
+                                    <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <div class="label-dynamic">
+                                                <sup>* </sup>
+                                                <label><span class="Status"></span></label>
+                                            </div>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" role="switch" id="StatusAwardingDegree" tabindex="0" checked>
+                                                <label class="form-check-label" for="StatusAwardingDegree">Check if Active</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Buttons -->
+                                <div class="text-center mt-2 mb-3">
+                                    <%-- <input type="button" value="Show" id="btnShowAwardingDegree" class="btn btn-sm btn-outline-primary" tabindex="0" />--%>
+                                    <input type="button" value="Submit" id="btnSubmitAwardingDegree" class="btn btn-sm btn-outline-primary" tabindex="0" />
+                                    <input type="button" value="Cancel" id="btnCancelAwardingDegree" class="btn btn-sm btn-outline-danger" tabindex="0" />
+                                </div>
+                            </div>
+
+                            <!-- Table -->
+                            <div class="col-12">
+                                <table class="table table-striped table-bordered nowrap" id="BindDynamicOrganizationTable"></table>
+                            </div>
+                        </div>
+
+                        <!-- New Tab -->
+                        <div class="tab-pane fade" id="tab_2">
+                            <div class="col-12 mt-3">
+                                <div class="row">
+                                    <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <div class="label-dynamic">
+                                                <sup>* </sup>
+                                                <label><span id="lblCourses" class="Courses"></span></label>
+                                            </div>
+                                            <asp:DropDownList ID="ddlCourses" runat="server" CssClass="form-control" data-select2-enable="true" TabIndex="0" AppendDataBoundItems="true">
+                                                <asp:ListItem Value="0">Please Select</asp:ListItem>
+                                            </asp:DropDownList>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <div class="label-dynamic">
+                                                <sup>* </sup>
+                                                <label><span class="Status"></span></label>
+                                            </div>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" role="switch" id="StatusCourses" tabindex="0" checked>
+                                                <label class="form-check-label" for="StatusCourses">Check if Active</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="text-center mt-2 mb-3">
+                                    <%-- <input type="button" value="Show" id="btnShowCourses" class="btn btn-sm btn-outline-primary" tabindex="0" />--%>
+                                    <input type="button" value="Submit" id="btnSubmitCourses" class="btn btn-sm btn-outline-primary" tabindex="0" />
+                                    <input type="button" value="Cancel" id="btnCancelCourses" class="btn btn-sm btn-outline-danger" tabindex="0" />
+
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <table class="table table-striped table-bordered nowrap" id="tblCourses"></table>
+                            </div>
+
+                        </div>
+                        <!-- New Tab -->
+                        <div class="tab-pane fade" id="tab_3">
+                            <div class="col-12 mt-3">
+                                <div class="row">
+                                    <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <div class="label-dynamic">
+                                                <sup>* </sup>
+                                                <label><span id="lblDiscipline" class="Discipline"></span></label>
+                                            </div>
+                                            <asp:DropDownList ID="ddlDiscipline" runat="server" CssClass="form-control" data-select2-enable="true" TabIndex="0" AppendDataBoundItems="true">
+                                                <asp:ListItem Value="0">Please Select</asp:ListItem>
+                                            </asp:DropDownList>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <div class="label-dynamic">
+                                                <sup>* </sup>
+                                                <label><span class="Status"></span></label>
+                                            </div>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" role="switch" id="StatusDiscipline" tabindex="0" checked>
+                                                <label class="form-check-label" for="StatusDiscipline">Check if Active</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Buttons -->
+                                <div class="text-center mt-2 mb-3">
+                                    <%--  <input type="button" value="Show" id="btnShowDiscipline" class="btn btn-sm btn-outline-primary" tabindex="0" />--%>
+                                    <input type="button" value="Submit" id="btnSubmitDiscipline" class="btn btn-sm btn-outline-primary" tabindex="0" />
+                                    <input type="button" value="Cancel" id="btnCancelDiscipline" class="btn btn-sm btn-outline-danger" tabindex="0" />
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <table class="table table-striped table-bordered nowrap" id="tblDiscipline">
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- New Tab -->
+                        <div class="tab-pane fade" id="tab_4">
+                            <div class="col-12 mt-3">
+                                <div class="row">
+                                    <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <div class="label-dynamic">
+                                                <sup>* </sup>
+                                                <label><span id="lblStudyLevel" class="StudyLevel"></span></label>
+                                            </div>
+                                            <asp:DropDownList ID="ddlStudyLevel" runat="server" CssClass="form-control" data-select2-enable="true" TabIndex="0" AppendDataBoundItems="true">
+                                                <asp:ListItem Value="0">Please Select</asp:ListItem>
+                                            </asp:DropDownList>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <div class="label-dynamic">
+                                                <sup>* </sup>
+                                                <label><span class="Status"></span></label>
+                                            </div>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" role="switch" id="StatusStudyLevel" tabindex="0" checked>
+                                                <label class="form-check-label" for="StatusStudyLevel">Check if Active</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Buttons -->
+                                <div class="text-center mt-2 mb-3">
+                                    <%-- <input type="button" value="Show" id="btnShowStudyLevel" class="btn btn-sm btn-outline-primary" tabindex="0" />--%>
+                                    <input type="button" value="Submit" id="btnSubmitStudyLevel" class="btn btn-sm btn-outline-primary" tabindex="0" />
+                                    <input type="button" value="Cancel" id="btnCancelStudyLevel" class="btn btn-sm btn-outline-danger" tabindex="0" />
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <table class="table table-striped table-bordered nowrap" id="tblStudyLevel">
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- New Tab -->
+                        <div class="tab-pane fade" id="tab_5">
+                            <div class="col-12 mt-3">
+                                <div class="row">
+                                    <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <div class="label-dynamic">
+                                                <sup>* </sup>
+                                                <label><span id="lblCourseClassification" class="CourseClassification"></span></label>
+                                            </div>
+                                            <asp:DropDownList ID="ddlCourseClassification" runat="server" CssClass="form-control" data-select2-enable="true" spellcheck="true" TabIndex="0" AppendDataBoundItems="true">
+                                                <asp:ListItem Value="0">Please Select</asp:ListItem>
+                                            </asp:DropDownList>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <div class="label-dynamic">
+                                                <sup>* </sup>
+                                                <label><span class="Status"></span></label>
+                                            </div>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" role="switch" id="StatusCourseClassification" tabindex="0" checked>
+                                                <label class="form-check-label" for="StatusCourseClassification">Check if Active</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Buttons -->
+                                <div class="text-center mt-2 mb-3">
+                                    <%--<input type="button" value="Show" id="btnShowCourseClassification" class="btn btn-sm btn-outline-primary" tabindex="0" />--%>
+                                    <input type="button" value="Submit" id="btnSubmitCourseClassification" class="btn btn-sm btn-outline-primary" tabindex="0" />
+                                    <input type="button" value="Cancel" id="btnCancelCourseClassification" class="btn btn-sm btn-outline-danger" tabindex="0" />
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <table class="table table-striped table-bordered nowrap" id="tblCourseClassification">
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- New Tab -->
+                        <div class="tab-pane fade" id="tab_6">
+                            <div class="col-12 mt-3">
+                                <div class="row">
+                                    <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <div class="label-dynamic">
+                                                <sup>* </sup>
+                                                <label><span id="lblCourseBoardClassification" class="CourseBoardClassification"></span></label>
+                                            </div>
+                                            <asp:DropDownList ID="ddlCourseBoardClassification" runat="server" CssClass="form-control" data-select2-enable="true" spellcheck="true" TabIndex="0" AppendDataBoundItems="true">
+                                                <asp:ListItem Value="0">Please Select</asp:ListItem>
+                                            </asp:DropDownList>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <div class="label-dynamic">
+                                                <sup>* </sup>
+                                                <label><span class="Status"></span></label>
+                                            </div>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" role="switch" id="StatusCourseBoardClass" tabindex="0" checked>
+                                                <label class="form-check-label" for="StatusCourseBoardClass">Check if Active</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Buttons -->
+                                <div class="text-center mt-2 mb-3">
+                                    <%-- <input type="button" value="Show" id="btnShowCourseBoardClass" class="btn btn-sm btn-outline-primary" tabindex="0" />--%>
+                                    <input type="button" value="Submit" id="btnSubmitCourseBoardClass" class="btn btn-sm btn-outline-primary" tabindex="0" />
+                                    <input type="button" value="Cancel" id="btnCancelCourseBoardClass" class="btn btn-sm btn-outline-danger" tabindex="0" />
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <table class="table table-striped table-bordered nowrap" id="tblCourseBoardClass">
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- New Tab -->
+                        <div class="tab-pane fade" id="tab_7">
+                            <div class="col-12 mt-3">
+                                <!-- Inputs -->
+                                <div class="row">
+                                    <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <div class="label-dynamic">
+                                                <sup>* </sup>
+                                                <label><span class="Semester"></span></label>
+                                            </div>
+                                            <input type="text" tabindex="0" class="form-control restrict-numbers-alphabet-spaces" maxlength="30" spellcheck="true" placeholder="e.g. Y1S1" id="txtSemester" name="txtSemester" />
+                                            <input type="hidden" id="hdfSemestertNo" value="0" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <div class="label-dynamic">
+                                                <sup>* </sup>
+                                                <label><span class="SemesterFullName"></span></label>
+                                            </div>
+                                            <input type="text" tabindex="0" class="form-control restrict-numbers-alphabet-spaces" maxlength="30" spellcheck="true" placeholder="e.g. Year 1 Sem 1" id="txtSemesterShortName" name="txtSemesterShortName" />
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <div class="label-dynamic">
+                                                <sup>* </sup>
+                                                <label><span class="CurriculumPattern"></span></label>
+                                            </div>
+                                            <asp:DropDownList ID="ddlCurricuPattern" runat="server" CssClass="form-control restrict-numbers-alphabet-spaces" data-select2-enable="true" spellcheck="true" TabIndex="0" AppendDataBoundItems="true">
+                                                <asp:ListItem Value="0">Please Select</asp:ListItem>
+                                            </asp:DropDownList>
+                                        </div>
+                                    </div>
+                                    <!-- Status Switch -->
+                                    <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <div class="label-dynamic">
+                                                <sup>* </sup>
+                                                <label><span class="Status"></span></label>
+                                            </div>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" role="switch" id="StatusSemester" tabindex="0" checked>
+                                                <label class="form-check-label" for="StatusSemester">Check if Active</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Buttons -->
+                                <div class="text-center mt-2 mb-3">
+                                    <%-- <input type="button" value="Show" id="btnShowDepartment" class="btn btn-sm btn-outline-primary" tabindex="0" />--%>
+                                    <input type="button" value="Submit" id="btnSubmitSemester" class="btn btn-sm btn-outline-primary" tabindex="0" />
+                                    <input type="button" value="Cancel" id="btnCancelSemester" class="btn btn-sm btn-outline-danger" tabindex="0" />
+                                </div>
+
+                                <!-- Table -->
+                                <div class="col-12">
+                                    <table class="table table-striped table-bordered nowrap" id="BindDynamicSemesterTable"></table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- New Tab -->
+                        <div class="tab-pane fade" id="tab_8">
+                            <div class="col-12 mt-3">
+                                <div class="row">
+                                    <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <div class="label-dynamic">
+                                                <sup>* </sup>
+                                                <label>Modality Name</label>
+                                            </div>
+                                            <asp:DropDownList ID="ddlModalityName" runat="server" CssClass="form-control" data-select2-enable="true" spellcheck="true" TabIndex="0" AppendDataBoundItems="true">
+                                                <asp:ListItem Value="0">Please Select</asp:ListItem>
+                                            </asp:DropDownList>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <div class="label-dynamic">
+                                                <sup>* </sup>
+                                                <label>Status</label>
+                                            </div>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" role="switch" id="StatusModality" tabindex="0" checked>
+                                                <label class="form-check-label" for="StatusModality">Check if Active</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Buttons -->
+                                <div class="text-center mt-2 mb-3">
+                                    <input type="button" value="Submit" id="btnSubmitModality" class="btn btn-sm btn-outline-primary" tabindex="0" />
+                                    <input type="button" value="Cancel" id="btnCancelModality" class="btn btn-sm btn-outline-danger" tabindex="0" />
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <table class="table table-striped table-bordered nowrap" id="tblModality">
+                                    <thead>
+                                        <tr>
+                                            <th>Action </th>
+                                            <th>Modality Name</th>
+                                            <th>Short Description</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <a href="#" id="btnEditModality" aria-label="Edit" class="bi bi-pencil-square text-primary"></a>
+                                            </td>
+                                            <td>RAM</td>
+                                            <td>RAM Modality</td>
+                                            <td><span class="badge bg-success">Active</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="#" id="A4" aria-label="Edit" class="bi bi-pencil-square text-primary"></a>
+                                            </td>
+                                            <td>RAD</td>
+                                            <td>RAD Modality</td>
+                                            <td><span class="badge bg-success">Active</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="#" id="A5" aria-label="Edit" class="bi bi-pencil-square text-primary"></a>
+                                            </td>
+                                            <td>FLEX</td>
+                                            <td>FLEX Modality</td>
+                                            <td><span class="badge bg-success">Active</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- New Tab -->
+                        <div class="tab-pane fade" id="tab_9">
+                            <div class="col-12 mt-3">
+                                <div class="row">
+                                    <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <div class="label-dynamic">
+                                                <sup>* </sup>
+                                                <label>Learning Modality</label>
+                                            </div>
+                                            <asp:DropDownList ID="ddlModality" runat="server" CssClass="form-control" data-select2-enable="true" spellcheck="true" TabIndex="0" AppendDataBoundItems="true">
+                                                <asp:ListItem Value="0">Please Select</asp:ListItem>
+                                            </asp:DropDownList>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xl-6 col-lg-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <div class="border p-3">
+                                                <asp:CheckBoxList ID="chkUniversity" runat="server" RepeatDirection="Vertical">
+                                                    <asp:ListItem Value="0">PHINMA University of Pangasinan (UPang)</asp:ListItem>
+                                                    <asp:ListItem Value="1">PHINMA Saint Jude College (SJC)</asp:ListItem>
+                                                    <asp:ListItem Value="2">PHINMA Republican College (RC)</asp:ListItem>
+                                                    <asp:ListItem Value="3">PHINMA Rizal College of Laguna (RCL)</asp:ListItem>
+                                                    <asp:ListItem Value="4">PHINMA Union College of Laguna (UCL) </asp:ListItem>
+                                                    <asp:ListItem Value="5">PHINMA Araullo University (AU) </asp:ListItem>
+                                                    <asp:ListItem Value="6">PHINMA University of Iloilo (UI) </asp:ListItem>
+                                                    <asp:ListItem Value="7">Southwestern University (SWU) </asp:ListItem>
+                                                    <asp:ListItem Value="8">PHINMA Cagayan de Oro College (COC) </asp:ListItem>
+                                                    <asp:ListItem Value="9">Horizon Education Indonesia</asp:ListItem>
+                                                </asp:CheckBoxList>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Buttons -->
+                                <div class="text-center mt-2 mb-3">
+                                    <input type="button" value="Submit" id="btnSubmitModalityMapping" class="btn btn-sm btn-outline-primary" tabindex="0" />
+                                    <input type="button" value="Cancel" id="btnCancelModalityMapping" class="btn btn-sm btn-outline-danger" tabindex="0" />
+                                </div>
+                            </div>
+                        </div>
+                        <!-- New Tab -->
+                        <div class="tab-pane fade" id="tab_10">
+                            <div class="col-12 mt-3">
+                                <div class="row">
+                                    <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <div class="label-dynamic">
+                                                <sup>* </sup>
+                                                <label><span class="ClaDyAffiliatedName"></span></label>
+                                            </div>
+                                            <input type="text" tabindex="0" class="form-control restrict-numbers-alphabet-spaces" maxlength="30" spellcheck="true" placeholder="e.g. University Name" id="txtAffiliatedName" name="txtAffiliatedName" />
+                                            <input type="hidden" id="hdnAffiliated" value="0" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <div class="label-dynamic">
+                                                <sup>* </sup>
+                                                <label><span class="ShortName"></span></label>
+                                            </div>
+                                            <input type="text" tabindex="0" class="form-control restrict-numbers-alphabet-spaces" maxlength="30" spellcheck="true" placeholder="e.g. Short Name" id="txtAffiliatedShortName" name="txtAffiliatedShortName" />
+                                        </div>
+                                    </div>
+
+                                    <%--   <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <div class="label-dynamic">
+                                                <sup>* </sup>
+                                                <label><span class="Status"></span></label>
+                                            </div>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" role="switch" id="Checkbox1" tabindex="0" checked>
+                                                <label class="form-check-label" for="StatusCourses">Check if Active</label>
+                                            </div>
+                                        </div>
+                                    </div>--%>
+                                </div>
+
+                                <div class="text-center mt-2 mb-3">
+
+                                    <input type="button" value="Submit" id="btnSubmitAffiliated" class="btn btn-sm btn-outline-primary" tabindex="0" />
+                                    <input type="button" value="Cancel" id="btnCancelAffiliated" class="btn btn-sm btn-outline-danger" tabindex="0" />
+
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <table class="table table-striped table-bordered nowrap" id="TablBindDynamicAffiliatedTablee"></table>
+                            </div>
+
+                        </div>
+                        <!-- New Tab -->
+                        <div class="tab-pane fade" id="tab_11">
+                            <div class="col-12 mt-3">
+                                <!-- Inputs -->
+                                <div class="row">
+                                    <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <div class="label-dynamic">
+                                                <sup>* </sup>
+                                                <label><span class="LearningModality"></span></label>
+                                                <asp:HiddenField ID="hdnLearningModalityNo" runat="server" Value="0" />
+                                            </div>
+                                            <asp:DropDownList ID="ddlLearningModality" runat="server" CssClass="form-control" data-select2-enable="true" TabIndex="0" AppendDataBoundItems="true">
+                                                <asp:ListItem Value="0">Please Select</asp:ListItem>
+                                            </asp:DropDownList>
+                                        </div>
+                                    </div>
+
+                                    <!-- Status Switch -->
+                                    <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <div class="label-dynamic">
+                                                <sup>* </sup>
+                                                <label><span class="Status"></span></label>
+                                            </div>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" role="switch" id="StatusLearningModality" tabindex="0" checked>
+                                                <label class="form-check-label" for="StatusLearningModality">Check if Active</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Buttons -->
+                                <div class="text-center mt-2 mb-3">
+                                    <%-- <input type="button" value="Show" id="btnShowAwardingDegree" class="btn btn-sm btn-outline-primary" tabindex="0" />--%>
+                                    <input type="button" value="Submit" id="btnSubmitLearningModality" class="btn btn-sm btn-outline-primary" tabindex="0" />
+                                    <input type="button" value="Cancel" id="btnCancelLearningModality" class="btn btn-sm btn-outline-danger" tabindex="0" />
+                                </div>
+                            </div>
+
+                            <!-- Table -->
+                            <div class="col-12">
+                                <table class="table table-striped table-bordered nowrap" id="tblLearningModalityList"></table>
+                            </div>
+                        </div>
+
+                        <!-- Added By Pushpak Fasate-->
+                        <div class="tab-pane fade" id="tab_12">
+                            <div class="col-12 mt-3">
+                                <!-- Inputs -->
+                                <div class="row">
+                                    <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <div class="label-dynamic">
+                                                <sup>* </sup>
+                                                <label><span class="CurriculumName"></span></label>
+                                                <asp:HiddenField ID="HiddenField1" runat="server" Value="0" />
+                                            </div>
+                                            <asp:DropDownList ID="ddlSemester" runat="server" CssClass="form-control" data-select2-enable="true" TabIndex="0" AppendDataBoundItems="true">
+                                                <asp:ListItem Value="0">Please Select</asp:ListItem>
+                                            </asp:DropDownList>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-12" id="tbSemesterh">
+                                        <table class="table table-striped table-bordered nowrap" id="tbSemester"></table>
+                                    </div>
+
+                                </div>
+                                <!-- Buttons -->
+                                <div class="text-center mt-2 mb-3">
+                                    <%-- <input type="button" value="Show" id="btnShowAwardingDegree" class="btn btn-sm btn-outline-primary" tabindex="0" />--%>
+                                    <input type="button" value="Submit" id="btnSubmitCurriculum" class="btn btn-sm btn-outline-primary" tabindex="0" />
+                                    <input type="button" value="Report" id="btnExportCurriculum" class="btn btn-sm btn-outline-primary" tabindex="0" />
+                                    <input type="button" value="Cancel" id="btnCancelCurriculum" class="btn btn-sm btn-outline-danger" tabindex="0" />
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- Tab panes END -->
+                        <!-- The Video Modal -->
+                        <div class="modal fade" id="VideoModal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+
+                                    <div class="modal-header">
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                    </div>
+
+                                    <div class="modal-body text-center">
+                                        <div class="table-responsive" id="Vframe">
+                                            <%--<video autoplay controls id="myVideo" class="w-100 video-plays">
+                                                <source src="assets/video/BigZpoon Explainer Video.mp4" type="video/mp4">
+                                            </video>--%>
+                                            <%--<iframe id="video-plays" class="video-plays" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>--%>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

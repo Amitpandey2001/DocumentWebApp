@@ -1,0 +1,52 @@
+@* @model MS_DOCS.Models.Project
+@{
+    ViewData["Title"] = "Project Details";
+    Layout = "_Layout";
+}
+
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header">
+            <div class="d-flex justify-content-between align-items-center">
+                <h3>@Model.ProjectName</h3>
+                @if (User.IsInRole("Admin"))
+                {
+                    <a asp-action="ManageAccess" asp-route-id="@Model.ProjectId" class="btn btn-outline-primary">Manage Access</a>
+                }
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-8">
+                    <h5>Description</h5>
+                    <p class="mb-4">@Model.Description</p>
+
+                    <h5>Project Information</h5>
+                    <table class="table table-borderless">
+                        <tr>
+                            <th style="width: 150px">Created By</th>
+                            <td>@Model.CreatorName</td>
+                        </tr>
+                        <tr>
+                            <th>Created Date</th>
+                            <td>@Model.CreatedDate.ToString("MMM dd, yyyy HH:mm")</td>
+                        </tr>
+                        <tr>
+                            <th>Your Access Level</th>
+                            <td>@Model.AccessLevel</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="d-flex justify-content-between">
+                <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+                @if (Model.AccessLevel == "Admin" || Model.AccessLevel == "Editor")
+                {
+                    <a asp-action="Edit" asp-route-id="@Model.ProjectId" class="btn btn-primary">Edit Project</a>
+                }
+            </div>
+        </div>
+    </div>
+</div> *@

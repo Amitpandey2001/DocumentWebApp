@@ -1,0 +1,42 @@
+[
+  {
+    "ContainingType": "MS_DOCS.Controllers.TestController",
+    "Method": "AuthDiagnostics",
+    "RelativePath": "api/Test/api/test/auth-diagnostics",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MS_DOCS.Controllers.TestController",
+    "Method": "TestDatabaseLogging",
+    "RelativePath": "api/Test/test-db-logging",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MS_DOCS.Controllers.TestController",
+    "Method": "TestErrorLogging",
+    "RelativePath": "api/Test/test-error-logging",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MS_DOCS.Controllers.TestController",
+    "Method": "TestErrorPage",
+    "RelativePath": "api/Test/test-error-page",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]

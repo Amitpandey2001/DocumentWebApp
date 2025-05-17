@@ -1,0 +1,893 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\obj\\Release\\net6.0\\win-x64\\scopedcss\\projectbundle\\MS-DOCS.bundle.scp.css",
+      "PackagePath": "staticwebassets\\MS-DOCS.1oovur3k6n.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\Reference\\htmlpage.html",
+      "PackagePath": "staticwebassets\\Reference\\htmlpage.html"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\Reference\\reffer.js",
+      "PackagePath": "staticwebassets\\Reference\\reffer.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\css\\common.css",
+      "PackagePath": "staticwebassets\\css\\common.css"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\css\\common.css.bak",
+      "PackagePath": "staticwebassets\\css\\common.css.bak"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\css\\jira-theme.css",
+      "PackagePath": "staticwebassets\\css\\jira-theme.css"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\css\\ms-theme.css",
+      "PackagePath": "staticwebassets\\css\\ms-theme.css"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\css\\search.css",
+      "PackagePath": "staticwebassets\\css\\search.css"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\images\\ms-logo.jpg",
+      "PackagePath": "staticwebassets\\images\\ms-logo.jpg"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\js\\SideBar.js",
+      "PackagePath": "staticwebassets\\js\\SideBar.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\js\\Validation.js",
+      "PackagePath": "staticwebassets\\js\\Validation.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\js\\common.js",
+      "PackagePath": "staticwebassets\\js\\common.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\js\\documentation\\documentation.js",
+      "PackagePath": "staticwebassets\\js\\documentation\\documentation.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\js\\loader.js",
+      "PackagePath": "staticwebassets\\js\\loader.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\js\\project\\project.js",
+      "PackagePath": "staticwebassets\\js\\project\\project.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\js\\search.js",
+      "PackagePath": "staticwebassets\\js\\search.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\TinyMce\\jquery.tinymce.min.js",
+      "PackagePath": "staticwebassets\\plugins\\TinyMce\\jquery.tinymce.min.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\TinyMce\\tinymce.min.js",
+      "PackagePath": "staticwebassets\\plugins\\TinyMce\\tinymce.min.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\bootstrap-5.2.3\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\plugins\\bootstrap-5.2.3\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\bootstrap-5.2.3\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\plugins\\bootstrap-5.2.3\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\bootstrap-5.2.3\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\plugins\\bootstrap-5.2.3\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\bootstrap-5.2.3\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\plugins\\bootstrap-5.2.3\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\bootstrap-5.2.3\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\plugins\\bootstrap-5.2.3\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\bootstrap-5.2.3\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\plugins\\bootstrap-5.2.3\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\bootstrap-5.2.3\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\plugins\\bootstrap-5.2.3\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\bootstrap-5.2.3\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\plugins\\bootstrap-5.2.3\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\bootstrap-5.2.3\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\plugins\\bootstrap-5.2.3\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\bootstrap-5.2.3\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\plugins\\bootstrap-5.2.3\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\bootstrap-5.2.3\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\plugins\\bootstrap-5.2.3\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\bootstrap-5.2.3\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\plugins\\bootstrap-5.2.3\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\bootstrap-icons-1.10.5\\font\\bootstrap-icons.css",
+      "PackagePath": "staticwebassets\\plugins\\bootstrap-icons-1.10.5\\font\\bootstrap-icons.css"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\bootstrap-icons-1.10.5\\font\\bootstrap-icons.json",
+      "PackagePath": "staticwebassets\\plugins\\bootstrap-icons-1.10.5\\font\\bootstrap-icons.json"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\bootstrap-icons-1.10.5\\font\\bootstrap-icons.min.css",
+      "PackagePath": "staticwebassets\\plugins\\bootstrap-icons-1.10.5\\font\\bootstrap-icons.min.css"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\bootstrap-icons-1.10.5\\font\\bootstrap-icons.scss",
+      "PackagePath": "staticwebassets\\plugins\\bootstrap-icons-1.10.5\\font\\bootstrap-icons.scss"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\bootstrap-icons-1.10.5\\font\\fonts\\bootstrap-icons.woff",
+      "PackagePath": "staticwebassets\\plugins\\bootstrap-icons-1.10.5\\font\\fonts\\bootstrap-icons.woff"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\bootstrap-icons-1.10.5\\font\\fonts\\bootstrap-icons.woff2",
+      "PackagePath": "staticwebassets\\plugins\\bootstrap-icons-1.10.5\\font\\fonts\\bootstrap-icons.woff2"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\datatable-responsive\\css\\buttons.bootstrap.min.css",
+      "PackagePath": "staticwebassets\\plugins\\datatable-responsive\\css\\buttons.bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\datatable-responsive\\css\\buttons.bootstrap4.min.css",
+      "PackagePath": "staticwebassets\\plugins\\datatable-responsive\\css\\buttons.bootstrap4.min.css"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\datatable-responsive\\css\\dataTables.bootstrap.min.css",
+      "PackagePath": "staticwebassets\\plugins\\datatable-responsive\\css\\dataTables.bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\datatable-responsive\\css\\dataTables.bootstrap4.min.css",
+      "PackagePath": "staticwebassets\\plugins\\datatable-responsive\\css\\dataTables.bootstrap4.min.css"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\datatable-responsive\\css\\fixedColumns.dataTables.min.css",
+      "PackagePath": "staticwebassets\\plugins\\datatable-responsive\\css\\fixedColumns.dataTables.min.css"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\datatable-responsive\\css\\fixedHeader.bootstrap.min.css",
+      "PackagePath": "staticwebassets\\plugins\\datatable-responsive\\css\\fixedHeader.bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\datatable-responsive\\css\\responsive.bootstrap.min.css",
+      "PackagePath": "staticwebassets\\plugins\\datatable-responsive\\css\\responsive.bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\datatable-responsive\\css\\responsive.bootstrap4.min.css",
+      "PackagePath": "staticwebassets\\plugins\\datatable-responsive\\css\\responsive.bootstrap4.min.css"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\datatable-responsive\\js\\buttons.bootstrap.min.js",
+      "PackagePath": "staticwebassets\\plugins\\datatable-responsive\\js\\buttons.bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\datatable-responsive\\js\\buttons.bootstrap4.min.js",
+      "PackagePath": "staticwebassets\\plugins\\datatable-responsive\\js\\buttons.bootstrap4.min.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\datatable-responsive\\js\\buttons.colVis.min.js",
+      "PackagePath": "staticwebassets\\plugins\\datatable-responsive\\js\\buttons.colVis.min.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\datatable-responsive\\js\\buttons.html5.min.js",
+      "PackagePath": "staticwebassets\\plugins\\datatable-responsive\\js\\buttons.html5.min.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\datatable-responsive\\js\\buttons.print.min.js",
+      "PackagePath": "staticwebassets\\plugins\\datatable-responsive\\js\\buttons.print.min.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\datatable-responsive\\js\\dataTables.bootstrap.min.js",
+      "PackagePath": "staticwebassets\\plugins\\datatable-responsive\\js\\dataTables.bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\datatable-responsive\\js\\dataTables.bootstrap4.min.js",
+      "PackagePath": "staticwebassets\\plugins\\datatable-responsive\\js\\dataTables.bootstrap4.min.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\datatable-responsive\\js\\dataTables.buttons.min.js",
+      "PackagePath": "staticwebassets\\plugins\\datatable-responsive\\js\\dataTables.buttons.min.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\datatable-responsive\\js\\dataTables.fixedColumns.min.js",
+      "PackagePath": "staticwebassets\\plugins\\datatable-responsive\\js\\dataTables.fixedColumns.min.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\datatable-responsive\\js\\dataTables.fixedHeader.min.js",
+      "PackagePath": "staticwebassets\\plugins\\datatable-responsive\\js\\dataTables.fixedHeader.min.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\datatable-responsive\\js\\dataTables.responsive.min.js",
+      "PackagePath": "staticwebassets\\plugins\\datatable-responsive\\js\\dataTables.responsive.min.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\datatable-responsive\\js\\jquery.dataTables.min.js",
+      "PackagePath": "staticwebassets\\plugins\\datatable-responsive\\js\\jquery.dataTables.min.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\datatable-responsive\\js\\jszip.min.js",
+      "PackagePath": "staticwebassets\\plugins\\datatable-responsive\\js\\jszip.min.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\datatable-responsive\\js\\pdfmake.min.js",
+      "PackagePath": "staticwebassets\\plugins\\datatable-responsive\\js\\pdfmake.min.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\datatable-responsive\\js\\pdfmake.min.js.map",
+      "PackagePath": "staticwebassets\\plugins\\datatable-responsive\\js\\pdfmake.min.js.map"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\datatable-responsive\\js\\responsive.bootstrap.min.js",
+      "PackagePath": "staticwebassets\\plugins\\datatable-responsive\\js\\responsive.bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\datatable-responsive\\js\\responsive.bootstrap4.min.js",
+      "PackagePath": "staticwebassets\\plugins\\datatable-responsive\\js\\responsive.bootstrap4.min.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\datatable-responsive\\js\\vfs_fonts.js",
+      "PackagePath": "staticwebassets\\plugins\\datatable-responsive\\js\\vfs_fonts.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\daterangepicker\\css\\daterangepicker.css",
+      "PackagePath": "staticwebassets\\plugins\\daterangepicker\\css\\daterangepicker.css"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\daterangepicker\\js\\daterangepicker.js",
+      "PackagePath": "staticwebassets\\plugins\\daterangepicker\\js\\daterangepicker.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\daterangepicker\\js\\moment.min.js",
+      "PackagePath": "staticwebassets\\plugins\\daterangepicker\\js\\moment.min.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\iziToast-master\\css\\iziToast.css",
+      "PackagePath": "staticwebassets\\plugins\\iziToast-master\\css\\iziToast.css"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\iziToast-master\\css\\iziToast.min.css",
+      "PackagePath": "staticwebassets\\plugins\\iziToast-master\\css\\iziToast.min.css"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\iziToast-master\\js\\iziToast.js",
+      "PackagePath": "staticwebassets\\plugins\\iziToast-master\\js\\iziToast.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\iziToast-master\\js\\iziToast.min.js",
+      "PackagePath": "staticwebassets\\plugins\\iziToast-master\\js\\iziToast.min.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\multi-select\\bootstrap-multiselect.css",
+      "PackagePath": "staticwebassets\\plugins\\multi-select\\bootstrap-multiselect.css"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\multi-select\\bootstrap-multiselect.js",
+      "PackagePath": "staticwebassets\\plugins\\multi-select\\bootstrap-multiselect.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\css\\select2.css",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\css\\select2.css"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\css\\select2.min.css",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\css\\select2.min.css"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\af.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\af.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\ar.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\ar.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\az.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\az.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\bg.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\bg.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\bn.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\bn.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\bs.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\bs.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\ca.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\ca.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\cs.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\cs.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\da.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\da.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\de.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\de.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\dsb.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\dsb.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\el.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\el.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\en.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\en.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\eo.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\eo.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\es.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\es.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\et.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\et.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\eu.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\eu.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\fa.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\fa.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\fi.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\fi.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\fr.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\fr.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\gl.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\gl.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\he.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\he.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\hi.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\hi.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\hr.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\hr.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\hsb.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\hsb.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\hu.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\hu.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\hy.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\hy.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\id.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\id.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\is.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\is.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\it.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\it.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\ja.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\ja.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\ka.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\ka.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\km.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\km.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\ko.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\ko.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\lt.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\lt.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\lv.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\lv.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\mk.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\mk.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\ms.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\ms.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\nb.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\nb.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\ne.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\ne.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\nl.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\nl.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\pa.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\pa.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\pl.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\pl.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\ps.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\ps.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\pt-BR.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\pt-BR.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\pt.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\pt.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\ro.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\ro.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\ru.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\ru.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\sk.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\sk.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\sl.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\sl.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\sq.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\sq.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\sr-Cyrl.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\sr-Cyrl.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\sr.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\sr.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\sv.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\sv.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\te.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\te.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\th.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\th.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\tk.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\tk.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\tr.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\tr.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\uk.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\uk.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\vi.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\vi.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\zh-CN.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\zh-CN.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\i18n\\zh-TW.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\i18n\\zh-TW.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\select2.full.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\select2.full.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\select2.full.min.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\select2.full.min.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\select2.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\select2.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\select2-4.1.0\\dist\\js\\select2.min.js",
+      "PackagePath": "staticwebassets\\plugins\\select2-4.1.0\\dist\\js\\select2.min.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\sweetalert2-11.7.5\\sweetalert2.all.js",
+      "PackagePath": "staticwebassets\\plugins\\sweetalert2-11.7.5\\sweetalert2.all.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\sweetalert2-11.7.5\\sweetalert2.all.min.js",
+      "PackagePath": "staticwebassets\\plugins\\sweetalert2-11.7.5\\sweetalert2.all.min.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\sweetalert2-11.7.5\\sweetalert2.css",
+      "PackagePath": "staticwebassets\\plugins\\sweetalert2-11.7.5\\sweetalert2.css"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\sweetalert2-11.7.5\\sweetalert2.js",
+      "PackagePath": "staticwebassets\\plugins\\sweetalert2-11.7.5\\sweetalert2.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\sweetalert2-11.7.5\\sweetalert2.min.css",
+      "PackagePath": "staticwebassets\\plugins\\sweetalert2-11.7.5\\sweetalert2.min.css"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\plugins\\sweetalert2-11.7.5\\sweetalert2.min.js",
+      "PackagePath": "staticwebassets\\plugins\\sweetalert2-11.7.5\\sweetalert2.min.js"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\webfonts\\opensans\\OpenSans-Bold-demo.html",
+      "PackagePath": "staticwebassets\\webfonts\\opensans\\OpenSans-Bold-demo.html"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\webfonts\\opensans\\OpenSans-Bold-webfont.eot",
+      "PackagePath": "staticwebassets\\webfonts\\opensans\\OpenSans-Bold-webfont.eot"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\webfonts\\opensans\\OpenSans-Bold-webfont.svg",
+      "PackagePath": "staticwebassets\\webfonts\\opensans\\OpenSans-Bold-webfont.svg"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\webfonts\\opensans\\OpenSans-Bold-webfont.ttf",
+      "PackagePath": "staticwebassets\\webfonts\\opensans\\OpenSans-Bold-webfont.ttf"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\webfonts\\opensans\\OpenSans-Bold-webfont.woff",
+      "PackagePath": "staticwebassets\\webfonts\\opensans\\OpenSans-Bold-webfont.woff"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\webfonts\\opensans\\OpenSans-Regular-webfont.eot",
+      "PackagePath": "staticwebassets\\webfonts\\opensans\\OpenSans-Regular-webfont.eot"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\webfonts\\opensans\\OpenSans-Regular-webfont.svg",
+      "PackagePath": "staticwebassets\\webfonts\\opensans\\OpenSans-Regular-webfont.svg"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\webfonts\\opensans\\OpenSans-Regular-webfont.ttf",
+      "PackagePath": "staticwebassets\\webfonts\\opensans\\OpenSans-Regular-webfont.ttf"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\webfonts\\opensans\\OpenSans-Regular-webfont.woff",
+      "PackagePath": "staticwebassets\\webfonts\\opensans\\OpenSans-Regular-webfont.woff"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\webfonts\\opensans\\fa-solid-900.ttf",
+      "PackagePath": "staticwebassets\\webfonts\\opensans\\fa-solid-900.ttf"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\webfonts\\opensans\\fa-solid-900.woff",
+      "PackagePath": "staticwebassets\\webfonts\\opensans\\fa-solid-900.woff"
+    },
+    {
+      "Id": "C:\\Shahbaz\\Project Int new\\docs.mastersofterp.com\\MS-DOCS\\MS-DOCS\\wwwroot\\webfonts\\opensans\\fa-solid-900.woff2",
+      "PackagePath": "staticwebassets\\webfonts\\opensans\\fa-solid-900.woff2"
+    },
+    {
+      "Id": "obj\\Release\\net6.0\\win-x64\\staticwebassets\\msbuild.MS-DOCS.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Release\\net6.0\\win-x64\\staticwebassets\\msbuild.MS-DOCS.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Release\\net6.0\\win-x64\\staticwebassets\\msbuild.build.MS-DOCS.props",
+      "PackagePath": "build\\MS-DOCS.props"
+    },
+    {
+      "Id": "obj\\Release\\net6.0\\win-x64\\staticwebassets\\msbuild.buildMultiTargeting.MS-DOCS.props",
+      "PackagePath": "buildMultiTargeting\\MS-DOCS.props"
+    },
+    {
+      "Id": "obj\\Release\\net6.0\\win-x64\\staticwebassets\\msbuild.buildTransitive.MS-DOCS.props",
+      "PackagePath": "buildTransitive\\MS-DOCS.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

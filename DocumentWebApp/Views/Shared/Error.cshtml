@@ -1,0 +1,46 @@
+@model ErrorViewModel
+@{
+    ViewData["Title"] = "Error";
+}
+
+<div class="text-center">
+    <h1 class="display-4 text-danger">Error</h1>
+    
+    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+    {
+        <p class="lead">@Model.ErrorMessage</p>
+    }
+    else
+    {
+        <p class="lead">An error occurred while processing your request.</p>
+    }
+    
+    @if (Model.ShowRequestId)
+    {
+        <p class="text-muted">
+            <small>Request ID: <code>@Model.RequestId</code></small>
+        </p>
+    }
+    
+    @if (Model.IsProduction && !string.IsNullOrEmpty(Model.ReferenceCode))
+    {
+        <p>
+            Please contact support with reference code: <strong>@Model.ReferenceCode</strong>
+        </p>
+    }
+    
+    @if (!Model.IsProduction)
+    {
+        <div class="alert alert-warning mt-4">
+            <h3>Development Mode</h3>
+            <p>
+                Detailed error information is displayed because the application is running in Development mode.
+                <strong>The Development environment shouldn't be enabled for deployed applications.</strong>
+            </p>
+        </div>
+    }
+    
+    <div class="mt-4">
+        <a href="/" class="btn btn-primary">Return to Home</a>
+    </div>
+</div>
